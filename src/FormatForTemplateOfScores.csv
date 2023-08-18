@@ -4,48 +4,48 @@ Examiner,Examiner Name,
 Date of Testing,"Jan 55, 2027",
 ,,
 Composite/Subtest,Standard score,Student Specific Information
-Oral Language,73,
-Listening Comprehension,73,
+Oral Language,73,student data for Oral Language
+Listening Comprehension,73,student specific data for Listening Comprehension
 Receptive Vocabulary,75,sample student information @ receptive vocabulary
 Oral Discourse Comprehension,79,sample student information @ oral discourse comprehension
-Oral Expression,76,
-Expressive Vocabulary,75,
-Oral Word Fluency,96,
-Sentence Repetition,70,
-Phonological Processing,89,
-Pseudoword Decoding,97,
-Phonemic Proficiency,85,
-Orthographic Processing Extended,79,
-Orthographic Fluency,77,
-Spelling,79,
-Orthographic Choice,88,
-Reading,81,
-Word Reading,82,
-Reading Comprehension,85,
-Basic Reading (and Decoding),86,
+Oral Expression,76,student data for Oral Discourse Comprehension
+Expressive Vocabulary,75,student data for Oral Expression
+Oral Word Fluency,96,student data for Oral word Fluency
+Sentence Repetition,70,student data for Sentence Repetition
+Phonological Processing,89,student data for Phonological Processing
+Pseudoword Decoding,97,student data for Pseudoword decoding
+Phonemic Proficiency,85,student data for Phonemic Proficiency
+Orthographic Processing Extended,79,sd for Orthographic Processing Extended
+Orthographic Fluency,77,student data for Orthographic Fluency
+Spelling,79,a bunch of student data for Spelling
+Orthographic Choice,88,specific info of student regarding Orthographic Choice
+Reading,81,student data for Reading
+Word Reading,82,student data for Word Reading
+Reading Comprehension,85,student data for Reading Comp
+Basic Reading (and Decoding),86,some observations on the student regarding Basic Reading (and Decoding)
 Pseudoword Decoding*,97,Note: Marked this as a reference field; Student specific data should not be on the astrix test bits
 Phonemic Proficiency*,85,Note: Student specific data should not be on the astrix test bits
 Word Reading*,82,Note: Student specific data should not be on the astrix test bits
-Reading Fluency,101,
-Oral Reading Fluency,134,
+Reading Fluency,101,stidemt data fpor Reading Fluency
+Oral Reading Fluency,134,studne
 Orthographic Fluency*,77,Note: Student specific data should not be on the astrix test bits
-Decoding Fluency,93,
-Written Expression,80,
+Decoding Fluency,93,student data for  Decoding Fluency
+Written Expression,80,student data for Written Expression
 Spelling*,79,Note: Marked this as a reference field; Student specific data should not be on the astrix test bits
-Sentence Composition,92,
-Essay Composition,81,
-Sentence Composition,92,
-Sentence Building,93,
-Sentence Combining,95,
-Writing Fluency,-,
+Sentence Composition,92,student data for Sentence Composition
+Essay Composition,81,student data for Essay Composition
+Sentence Composition,92,student data for Sentence Composition
+Sentence Building,93,student data for Sentence Building
+Sentence Combining,95,student data for Sentence Combining
+Writing Fluency,-,student data for Writing Fluency
 Alphabet Writing Fluency,-,
-Sentence Writing Fluency,82,
-Mathematics,67,
-Math Problem Solving,68,
-Numerical Operations,71,
-Math Fluency,70,
-Math Fluency–Addition,76,
-Math Fluency–Subtraction,71,
+Sentence Writing Fluency,82,student data for Fluency of Sentence Writing
+Mathematics,67,student data for Mathematics
+Math Problem Solving,68,student data for Math Problem Solving
+Numerical Operations,71,student data for Numerical Operations
+Math Fluency,70,student data for Math Fluency
+Math Fluency–Addition,76,student data for Math fluency addition
+Math Fluency–Subtraction,71,student data for Math Fluency subtraction
 Math Fluency–Multiplication,72,
 ,,
 *subtest is repeated from another category,,
