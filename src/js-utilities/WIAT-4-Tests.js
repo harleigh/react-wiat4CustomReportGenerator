@@ -3,8 +3,8 @@
  * Keys: Composites of the wiat-4 test
  * Values: all subtests of the composite
  */
-const compositesDict = {
-    "Oral Language": ["Listening Composition", "Oral Expression"], 
+export const compositesDict = {
+    "Oral Language": ["Listening Comprehension", "Oral Expression"], 
     "Phonological Processing": ["Pseudoword Decoding", "Phonemic Proficiency"],
     "Orthographic Processing Extended": ["Orthographic Fluency", "Spelling", "Orthographic Choice"],
     "Reading":  ["Word Reading", "Reading Comprehension"],
@@ -13,7 +13,7 @@ const compositesDict = {
     "Written Expression": ["Spelling", "Sentence Composition", "Essay Composition"],
     "Writing Fluency": ["Sentence Writing Fluency"],
     "Mathematics": ["Math Problem Solving", "Numerical Operations"],
-    "Math Fluency": ["Math Fluency-Addition", "Math Fluency-Subtraction", "Math Fluency-Multiplication"]
+    "Math Fluency": ["Math Fluency–Addition", "Math Fluency–Subtraction", "Math Fluency–Multiplication"]
 }
 
 /**
@@ -23,9 +23,9 @@ const compositesDict = {
  * Additionally, some subtests are referenced multiple times in the wiat-4 exam, but they only
  * appear once in this dictionary (as the scores etc are simply referenced)
  */
-const subTestsDict = {
+export const subTestsDict = {
     //"Oral Language" composite
-        "Listening Composition": ["Receptive Vocabulary", "Oral Discourse Comprehension"],
+        "Listening Comprehension": ["Receptive Vocabulary", "Oral Discourse Comprehension"],
         "Oral Expression": ["Expressive Vocabulary", "Oral Word Fluency", "Sentence Repetition"],
 
     //"Phonological Processing" composite
@@ -60,9 +60,9 @@ const subTestsDict = {
         "Numerical Operations":[],
 
     //"Math Fluency" composite
-        "Math Fluency-Addition":[],
-        "Math Fluency-Subtraction":[], 
-        "Math Fluency-Multiplication":[],
+        "Math Fluency–Addition":[],
+        "Math Fluency–Subtraction":[], 
+        "Math Fluency–Multiplication":[],
 }
 
 /**
@@ -88,7 +88,7 @@ const getSubtestNames = (list) => {
 /**
  * Practice and testing code
  */
-console.log(compositesDict)
+/* console.log(compositesDict)
 console.log(compositesDict["Oral Language"].length)
 const Student_Name = "Student_Name"
 for(var c in compositesDict) {
@@ -97,4 +97,4 @@ for(var c in compositesDict) {
     const str = "The " + c +" Composite is calculated based on " + Student_Name + "'s performances across the "+ getSubtestNames(subtests) + " subtests."
     console.log(str)
     console.log()
-}
+} */
