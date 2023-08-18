@@ -1,0 +1,8 @@
+Explanation of all measures performances across these clusters are analyzed below. Interpretation of assessment results and standard scores are as follows:
+130 and above Extremely High
+120 to 130 Very High
+110 to 120  High Average
+90-110   Average
+80 to 90 Low Average
+70 to 80 Very Low
+Below 70 Extremely Low
