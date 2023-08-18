@@ -3,7 +3,7 @@
 //yet being paved; as I am learning, all code and documentation are "as is"
 
 import { useState } from "react";
-import {PrettyDisplay} from "./components/PrettyDisplay";
+
 /**
  * Component returns a very basic table of each row of the cvs file 
  */
@@ -12,15 +12,16 @@ import {PrettyDisplay} from "./components/PrettyDisplay";
 
 /**
  * Basic component lets you pick a single csv file out and then
- * display the contents
+ * stores the file contents in a state for futher processing
  */
-export function FileAccess() {
+export function FileAccess({fileContents, setFileContents}) {
     const [csvFileObj, setCvsFileObj] = useState("");
-    const [fileContents, setFileContents] = useState("")    //will be removed
+    
 
     /**
      * Pre: the csvFile has been set by the onChange event of the
      *      <input> component
+     * Post: We read the entire contents of the csv file 
      */
     const onProcessCsvFile = () =>{
         if(csvFileObj===""){return;}
@@ -51,14 +52,9 @@ export function FileAccess() {
             <div>
                 <button onClick={onProcessCsvFile}> Process CSV File </button>
             </div>
-            <div>
-                <PrettyDisplay fileContents={fileContents}/>
-            </div>
         </>
     );
 }//end file access component
 
 //later, we can break the file access into another component;
 // a parent that has a file component and a pretty display component
-
-//export default FileAccess;
