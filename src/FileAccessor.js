@@ -14,7 +14,7 @@ import {PrettyDisplay} from "./components/PrettyDisplay";
  * Basic component lets you pick a single csv file out and then
  * display the contents
  */
-function FileAccess() {
+export function FileAccess() {
     const [csvFileObj, setCvsFileObj] = useState("");
     const [fileContents, setFileContents] = useState("")    //will be removed
 
@@ -61,4 +61,4 @@ function FileAccess() {
 //later, we can break the file access into another component;
 // a parent that has a file component and a pretty display component
 
-export default FileAccess;
+//export default FileAccess;
