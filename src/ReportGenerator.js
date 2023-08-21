@@ -6,28 +6,44 @@ import {processCsvFile} from './js-utilities/processCsvFile'
 export default function Wiat4ReportGenerator() {
 
     const [fileContents, setFileContents] = useState("")
-    //const [scoresDict, setScoresDict] = useState("")
+    const [allTestDataDict, setScoresDict] = useState("")
 
+    const studentName = allTestDataDict["Name of Student"]
+    const studentPronoun = allTestDataDict["Pronoun of Student"]
+    const examinerName = allTestDataDict["Examiner Name"]
+    const dateOfExam = allTestDataDict["Date of Testing"]
+
+    /**
+     * Process the CSV file once the file contents are read
+     */
     useEffect(() => {
+        //useEffect runs on Mount, so don't process the csv file  if the file contentes are empty
         if (fileContents!=="") {
-            console.log("I am going to process the CSV File")
-            processCsvFile(fileContents)
+            //console.log("I am going to process the CSV File")
+            const allWiat4Data = processCsvFile(fileContents)
+            setScoresDict( allWiat4Data )
         }
     }, [fileContents]);
 
-
     
-
+    
     return (
         <>
-        <h1> Wiat-4 Report Generator</h1>
+        <div className="titleBanner">
+            <h1> Wiat-4 Report Generator</h1>
+        </div>
+        
         <div>
             <FileAccess fileContents={fileContents}
                         setFileContents={setFileContents}/>
         </div>
         <div>
+            {allTestDataDict===""? "...awaiting csv file...": "I can build the report!"}
+        </div>
+        <div>
             <PrettyDisplay fileContents={fileContents}/>
         </div>
+
         </>
     )
 }
