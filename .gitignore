@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# An area testing various javascript bits
+src/js-utilities/jsSandbox.js
