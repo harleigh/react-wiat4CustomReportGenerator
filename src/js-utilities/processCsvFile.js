@@ -9,6 +9,12 @@ export function processCsvFile( fileContents ){
     const rows = fileContents.split('\r\n')
     console.log(rows)
 
+    try{ 
+        preValidationCsvFile(rows)
+    }catch(e) {
+        console.error(e)
+    }
+
     getHeaderInfo(data, rows)
     
 
@@ -28,8 +34,27 @@ export function processCsvFile( fileContents ){
             } 
         } 
     }
+    try{
+        postValidationCsvFile(data)
+    }catch(e){
+        console.error(e)
+    }
 
     console.log(data)
+}
+
+
+function preValidationCsvFile(rows) {
+    const numCols = rows[0].split(",").length
+    if(  numCols >3 ){
+        throw Error("Warning: Too many columns in CSV file. I expected 3, but found ", numCols)
+    }
+}
+
+function postValidationCsvFile(dataDict) {
+    if( undefined in dataDict){
+        throw Error("An Entry was not found from the CSV")
+    }
 }
 
 /**
@@ -45,7 +70,7 @@ function getHeaderInfo(dataDict, rows){
 }
 
 function collectTestEntry(dataDict, dataRows, testName){
-    let [key, score, ssd] = [NaN, NaN, NaN]
+    let [key, score, ssd] = [undefined, "", ""]
     try {
         [key, score, ssd] = getTestData(dataRows, testName)
     }catch(e) {
