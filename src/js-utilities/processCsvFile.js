@@ -7,21 +7,24 @@ export function processCsvFile( fileContents ){
 
     //note, csv files have "\r" for last record in row
     const rows = fileContents.split('\r\n')
-    //console.log(rows)
+    console.log(rows)
+
+    getHeaderInfo(data, rows)
+    
 
      for(const c in compositesDict) {
-        collectEntry(data, rows, c)
+        collectTestEntry(data, rows, c)
         //console.log("Compsite:", c)
         const allSubtests = compositesDict[c];
         //console.log("   Subtests", allSubtests)
          for( const subtest of allSubtests) {
             //console.log("   I am collecting data for ", subtest)
-            collectEntry(data, rows, subtest)
+            collectTestEntry(data, rows, subtest)
             const allComponents = subTestsDict[subtest]
             //console.log("      Components", allComponents)
             for( const component of allComponents) {
                 //console.log("      I am collecting data for", component)
-                collectEntry(data, rows, component)
+                collectTestEntry(data, rows, component)
             } 
         } 
     }
@@ -29,17 +32,29 @@ export function processCsvFile( fileContents ){
     console.log(data)
 }
 
-function collectEntry(dataDict, dataRows, testName){
+/**
+ * Pulling Student Name, Student Pronoun,
+ * Examiner Name, Date of Test.
+ */
+function getHeaderInfo(dataDict, rows){
+    for(let i=0; i<3; i++) {
+        const [key, val] = rows[i].split(",")
+        //console.log("key ", key, " value ", val)
+        dataDict[key] = val;
+    }
+}
+
+function collectTestEntry(dataDict, dataRows, testName){
     let [key, score, ssd] = [NaN, NaN, NaN]
     try {
-        [key, score, ssd] = getData(dataRows, testName)
+        [key, score, ssd] = getTestData(dataRows, testName)
     }catch(e) {
         console.error(e);
     }
     dataDict[key] = [score, ssd]
 }
 
-function getData(dataRows, testName){
+function getTestData(dataRows, testName){
     const entry = dataRows.find( r => r.includes(testName))
     if(entry === undefined) {
         throw new Error('Critical: I could not find ' + testName);
