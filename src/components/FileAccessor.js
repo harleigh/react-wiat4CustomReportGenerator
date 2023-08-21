@@ -39,8 +39,11 @@ export function FileAccess({fileContents, setFileContents}) {
    
     return(
         <>
-            <h1>Accessing CSV Files</h1>
-            <div>
+            <div className="uploadCSV">
+                <h1>Upload CSV File...</h1>
+            </div>
+            
+            <div className="fileSelector">
                 <label htmlFor="csv-selector">Select a file:</label>
                 <input type="file"
                     id="csv-selector"
@@ -48,10 +51,12 @@ export function FileAccess({fileContents, setFileContents}) {
                     accept=".csv"
                     onChange={ (e) => setCvsFileObj(e.target.files[0])}
                     multiple={false}/>
+                    <div className="fileSelectorButton">
+                        <button onClick={onProcessCsvFile}> Process CSV File </button>
+                    </div>
             </div>
-            <div>
-                <button onClick={onProcessCsvFile}> Process CSV File </button>
-            </div>
+
+                
         </>
     );
 }//end file access component
