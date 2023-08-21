@@ -1,7 +1,9 @@
 import { useState, useEffect  } from "react";
-import {FileAccess} from "./components/FileAccessor" 
+import {FileAccess} from "./components/FileAccessor" ;
 import {PrettyDisplay} from "./components/PrettyDisplay";
-import {processCsvFile} from './js-utilities/processCsvFile'
+import {Header} from "./components/Header"
+import {processCsvFile} from './js-utilities/processCsvFile';
+
 
 export default function Wiat4ReportGenerator() {
 
@@ -25,7 +27,7 @@ export default function Wiat4ReportGenerator() {
         }
     }, [fileContents]);
 
-    
+
     
     return (
         <>
@@ -33,12 +35,15 @@ export default function Wiat4ReportGenerator() {
             <h1> Wiat-4 Report Generator</h1>
         </div>
         
-        <div>
+        <div className="fileAccessor">
             <FileAccess fileContents={fileContents}
                         setFileContents={setFileContents}/>
         </div>
-        <div>
-            {allTestDataDict===""? "...awaiting csv file...": "I can build the report!"}
+        <div className="reportHeader">
+            {allTestDataDict!=="" && <Header sName={studentName}
+                                             sPronoun={studentPronoun}
+                                             examinerName={examinerName}
+                                             date={dateOfExam}/>}
         </div>
         <div>
             <PrettyDisplay fileContents={fileContents}/>
