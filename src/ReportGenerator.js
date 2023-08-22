@@ -4,6 +4,7 @@ import {PrettyDisplay} from "./components/PrettyDisplay";
 import {Header} from "./components/Header"
 import {processCsvFile} from './js-utilities/processCsvFile';
 
+import { Composite } from "./components/Composite";
 
 export default function Wiat4ReportGenerator() {
 
@@ -45,10 +46,17 @@ export default function Wiat4ReportGenerator() {
                                              examinerName={examinerName}
                                              date={dateOfExam}/>}
         </div>
+        <div className="reportBody">
+            <Composite compositeName={"Orthographic Processing Extended"}
+                       studentName={"Student-Name"}
+                       studentPronoun={"They"}
+                       ssi={"Student Specific Info here."}
+                       score={"88"}/>
+        </div>
+
         <div>
             <PrettyDisplay fileContents={fileContents}/>
         </div>
-
         </>
     )
 }
