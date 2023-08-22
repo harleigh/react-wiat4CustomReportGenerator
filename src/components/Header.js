@@ -24,18 +24,21 @@ export function Header( {sName, sPronoun, examinerName, date} ) {
                 are analyzed below. Interpretation of assessment results and standard scores
                 are as follows:
             </p>
-            <div style={{marginLeft: '20px'}}>
-                <p>130 and above Extremely High</p>
-                <p>120 to 130 Very High</p>
-                <p>110 to 120  High Average</p>
-                <p>90-110 Average</p>
-                <p>80 to 90 Low Average</p>
-                <p>70 to 80 Very Low</p>
-                <p>Below 70 Extremely Low</p>
+            <div>
+                <ul style={ {listStyle: "none"} }>
+                    <li>130 and above: Extremely High</li>
+                    <li>120 to &lt; 130: Very High</li>
+                    <li>110 to &lt; 120:  High Average</li>
+                    <li>90 to &lt; 110: Average</li>
+                    <li>80 to &lt; 90: Low Average</li>
+                    <li>70 to &lt; 80: Very Low</li>
+                    <li>Below 70: Extremely Low</li>
+                </ul>
             </div>
             </>
         )
     }
+
 
     return(
         <>
