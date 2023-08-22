@@ -117,20 +117,23 @@ console.log(testDescriptionDict["Listening Comprehension"])
 */
 export const  getMeasure = (studentScore) =>{
     const score = Number(studentScore)
-
+    let measureForScore = ""
     if( score<70 ) {
-        return "Extremely Low"
+        measureForScore= "Extremely Low"
+    }else if( score>=70 && score<80  ) {
+        measureForScore= "Very Low"
     }else if( score>=80 && score<90  ) {
-        return  "Very Low"
+        measureForScore= "Low Average"
     }else if(score>=90 && score<110){
-        return "Average"
+        measureForScore="Average"
     }else if(score>=110 && score<120){
-        return "High Average"
+        measureForScore="High Average"
     }else if(score>=120 && score<130){
-        return "Very Average"
+        measureForScore="Very Average"
     }else {
-        return "Extreamly High"
+        measureForScore="Extreamly High"
     }
+    return measureForScore
 }
 
 
