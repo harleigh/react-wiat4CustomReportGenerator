@@ -3,6 +3,7 @@ import {FileAccess} from "./components/FileAccessor" ;
 import {Header} from "./components/Header"
 import {processCsvFile} from './js-utilities/processCsvFile';
 import { Composite } from "./components/Composite";
+import {compositesDict} from "./js-utilities/WIAT-4-Tests"
 
 export default function Wiat4ReportGenerator() {
 
@@ -26,6 +27,21 @@ export default function Wiat4ReportGenerator() {
     }, [fileContents]);
 
 
+    const generateAllComposites= () => {
+
+        const allCompositeNames = Object.keys(compositesDict)
+        const allCompositeComponents = allCompositeNames.map( (compositeName, idx) => {
+            return (
+                <div className="compositeBody" key={idx}>
+                    <Composite compositeName={compositeName}
+                                        studentName={studentName}
+                                        testInformation={allTestDataDict}/>
+                </div>
+            )
+        })//end map
+        return allCompositeComponents
+    }
+
     
     return (
         <>
@@ -42,18 +58,17 @@ export default function Wiat4ReportGenerator() {
                                              examinerName={examinerName}
                                              date={dateOfExam}/>}
         </div>
-        <div className="compositeBody">
-            { allTestDataDict!=="" &&<Composite compositeName={"Written Expression"}
-                                        studentName={"Student-Name"}
-                                        testInformation={allTestDataDict}/>}
+        <div className="mainBody">
+            { allTestDataDict!=="" &&   generateAllComposites() }
         </div>
         </>
     )
 }
 
 /* 
-        <div>
-            <PrettyDisplay fileContents={fileContents}/>
+        <div className="compositeBody">
+            { allTestDataDict!=="" &&<Composite compositeName={"Written Expression"}
+                                        studentName={"Student-Name"}
+                                        testInformation={allTestDataDict}/>}
         </div>
-
 */
