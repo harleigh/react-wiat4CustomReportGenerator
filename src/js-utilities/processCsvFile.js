@@ -61,16 +61,15 @@ function postValidationCsvFile(dataDict) {
 }
 
 /**
- * Pulling Student Name, Student Pronoun,
- * Examiner Name, Date of Test.
+ * Pulling Student Name, Examiner Name, Date of Test.
  */
 function getHeaderInfo(dataDict, rows){
-    for(let i=0; i<3; i++) {
+    for(let i=0; i<2; i++) {
         const [key, val] = rows[i].split(",")
         dataDict[key] = val;
     }
     //date of test has a comma in it eg Jan 14, 2927
-    const [key, monthDate, year] = rows[3].split(",")
+    const [key, monthDate, year] = rows[2].split(",")
     dataDict[key] = monthDate + "," + year;
 }
 
