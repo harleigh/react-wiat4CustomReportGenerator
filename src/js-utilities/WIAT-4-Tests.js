@@ -80,7 +80,7 @@ export const testDescriptionDict = {
     "Receptive Vocabulary": "Students select the picture that best illustrates the meaning of each target word spoken by the examiner.",
     "Oral Discourse Comprehension":  "Students listen to passages presented via audio recording then respond aloud to comprehension questions asked by the examiner.",
     "Oral Expression": "subtest is designed to measure a student's oral expression at the word and sentence level. It is appropriate for children grades Preschool through 12+ grade.",
-    "Expressive vocabulary": "Students see a picture and hear a definition and respond with the word that best corresponds to the picture and definition given.",
+    "Expressive Vocabulary": "Students see a picture and hear a definition and respond with the word that best corresponds to the picture and definition given.",
     "Oral Word Fluency": "Students name as many items as possible belonging to a given category within one minute.",
     "Sentence Repetition": "Students listen to a sentence and then repeat it verbatim. Sentences increase in length and complexity as the student progresses through the subtest.",
     "Pseudoword Decoding": "subtest is designed to measure phonic decoding skills among students in grades 1-12+. The student is asked to read a list of pseudowords aloud.",
@@ -103,7 +103,28 @@ export const testDescriptionDict = {
     "Math Fluency–Multiplication":"Missing Description for Math Fluency Multiplication"
 }
 
-console.log(testDescriptionDict["Listening Comprehension"])
+/**
+ * There are a few composites that reference previously discussed subtests.  For these, the
+ * reporting changes (e.g. no student-specific info is discussed, only a reference is placed
+ * in the report--e.g. "see Reading Fluency composite for Student Name's performance in 
+ *  Orthographic Fluency")
+ */
+export const compositesWithRefsDict = {
+    "Basic Reading (and Decoding)": ["Pseudoword Decoding", "Phonemic Proficiency", "Word Reading"],
+    "Reading Fluency": ["Orthographic Fluency"],
+    "Written Expression": ["Spelling"]
+}
+
+export const parentOfRefsDict ={
+    "Pseudoword Decoding": "Phonological Processing",
+    "Phonemic Proficiency": "Phonological Processing",
+    "Word Reading": "Reading",
+    "Orthographic Fluency": "Orthographic Processing Extended",
+    "Spelling": "Orthographic Processing Extended"
+}
+/* export const subtestRefParentDict ={
+    "Pseudoword Decoding": 
+} */
 
 /**
  * Utility function
