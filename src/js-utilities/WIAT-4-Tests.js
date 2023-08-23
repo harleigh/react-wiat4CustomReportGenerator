@@ -98,9 +98,9 @@ export const testDescriptionDict = {
     "Sentence Writing Fluency": "subtest is designed to measure sentence composition fluency. Examinees write a sentence for each item using a target word, completing as many items as possible within 5 minutes. Scoring incorporates the number of words written, use of the target word, and subject-verb agreement.",
     "Math Problem Solving": "subtest measures a range of math problem-solving skill domains including basic concepts, everyday applications, geometry, and algebra.  Students in Preschool through 12+ grades are asked to point to pictures or respond orally to items that require the application of mathematical principles to real-life situations.",
     "Numerical Operations": "subtest measures math calculation skills among children in grades Kindergarten through 12+ grades.  For early items, a student responds orally to questions about number concepts and counting.  For later items, the student writes answers to printed math problems ranging from basic operations with integers to geometry, algebra, and calculus problems.",
-    "Math Fluency–Addition": "Missing Description for Math Fluency Addition",
-    "Math Fluency–Subtraction":"Missing Description for Math Fluency Subtraction", 
-    "Math Fluency–Multiplication":"Missing Description for Math Fluency Multiplication"
+    "Math Fluency–Addition": "Students solve as many single-digit addition problems as they can in one minute",
+    "Math Fluency–Subtraction":"Students solve as many single-digit subtraction problems as they can in one minute", 
+    "Math Fluency–Multiplication":"Students solve as many single-digit multiplication problems as they can in one minute"
 }
 
 /**
