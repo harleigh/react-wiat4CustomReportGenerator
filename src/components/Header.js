@@ -1,11 +1,12 @@
 
-export function Header( {sName, sPronoun, examinerName, date} ) {
+export function Header( {sName, examinerName, date} ) {
 
     const testDescription = () => {
+
         return (
             <p>
                 To assess {sName}'s academic abilities in language processing, reading,
-                writing and math, {sPronoun} was administered grade-appropriate subtests
+                writing and math, {sName} was administered grade-appropriate subtests
                 from the Wechsler Individual Achievement Test®, Fourth Edition (WIAT®-4).
                 This assessment is a norm-referenced,  individually administered
                 achievement test. The WIAT-4, consists of 20 subtests used to evaluate

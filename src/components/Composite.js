@@ -1,90 +1,118 @@
-import {compositesDict} from "../js-utilities/WIAT-4-Tests"
+import {compositesDict, getMeasure, compositesWithRefsDict, parentOfRefsDict} from "../js-utilities/WIAT-4-Tests"
+import {Subtest} from './Subtest'
 
+//ssi: Student Specific Information (for the current composite)
+export function Composite({compositeName, studentName, testInformation}) {
 
-
-
-/**
- *  130 and above Extremely High
-    120 to 130 Very High
-    110 to 120  High Average
-    90-110   Average
-    80 to 90 Low Average
-    70 to 80 Very Low
-    Below 70 Extremely Low
-*/
-export const  getMeasure = (studentScore) =>{
-    const amt = Number(studentScore)
-
-    if( amt<70 ) {
-        return "Extremely Low"
-    }else if( amt>=80 && amt<90  ) {
-        return  "Very Low"
-    }else if(amt>=90 && amt<110){
-        return "Average"
-    }else if(amt>=110 && amt<120){
-        return "High Average"
-    }else if(amt>=120 && amt<130){
-        return "Very Average"
-    }else {
-        return "Extreamly High"
-    }
-}
-
-
-export function Composite({compositeName, studentName, studentPronoun, ssi, score}) {
-
-    const subtestNames = compositesDict[compositeName]
-
+    const subtestNames = compositesDict[compositeName];   
+    const [score, ssi] = testInformation[compositeName]
+    
     /**
      * Fancy code to return bolded subtest names in oxford comma format
      */
     const buildSubtestNames = () => {
-        const lastIdx = subtestNames.length-1
+        const lastIdx = subtestNames.length-1;
+
         const formatedNames =  subtestNames.map(
             (v, idx) => {
                 if( idx===lastIdx){
-                    return <div key={idx} style={{display:"inline"}}> and <strong > {v} </strong></div> //<div key={idx}> and <strong> {v} </strong></div>
+                    return <div key={idx} style={{display:"inline"}}> and <strong > {v} </strong></div> 
                 }
                 else {
                     return <div key={idx} style={{display:"inline"}}>{idx>0&&idx<lastIdx? ",":""}<strong> {v}</strong></div>
                 } 
             }
         )
+
         return(
             <div style={{display:"inline"}}>
                 {formatedNames}
             </div> 
         )
-    }
+    }// end building the subtest names
 
 
     // [[Student_Name]]'s overall performance within this composite scored within the [[Very Low]] range, with a standard score of 73.
-    const buildConclusion = () => {
+    const buildCompositeConclusion = () => {
         return (
             <>
             {studentName}'s overall performance within this composite scored
-            within the {getMeasure(score)} range, with a standard score of <strong>{score}</strong>.
+            within the <strong>{getMeasure(score)}</strong> range, with a standard score of <strong>{score}</strong>.
             </>
         )
-    }
+    }// end build conclusion
 
-    const buildDescription = () => {
+    const buildCompositeDescription = () => {
         
         return ( <>
                 The <em>{compositeName}</em> composite is based on {studentName}'s performances
                 across {buildSubtestNames()} subsets.
                 </>
         )
+    }// end building the description of the composite
+
+
+    const buildAllSubtests = () => {
+
+        const res = subtestNames.map( (subtest, idx) => {
+            var parentToRef = ""
+            if (compositeName in compositesWithRefsDict){
+                parentToRef = parentOfRefsDict[subtest]
+                //console.log("Subtest ", subtest, " is referenced, parent is ", parentToRef)
+            }
+            return (
+                <li key={idx}>
+                    <Subtest subtestName={subtest}
+                        studentName={studentName}
+                        testInformation={testInformation}
+                        parentCompositeToRef={parentToRef}/>
+                </li>
+
+            )
+        })
+        return res
     }
 
     return (
         <>
-        <div>
-            {buildDescription()}&nbsp;{ssi}&nbsp;{buildConclusion()}
-            <li>
-                Hello
-            </li>
+        <div className="composite">
+            <div className="componentTitle">
+                        <h2><strong><u>{compositeName} Composite</u></strong></h2>
+            </div>
+            <div className="compositeBody">
+                {buildCompositeDescription()}{" "+ ssi + " "}{buildCompositeConclusion()}
+            </div>
+            <div className="subtests">
+                <ul>
+                    {buildAllSubtests()}
+                </ul>
+            </div>
         </div>
+
+        
         </>
     )
 }
+
+/**
+ * 
+ * 
+ * <li>
+                <Subtest subtestName={"Orthographic Fluency"}
+                        studentName={studentName}
+                        studentPronoun={studentPronoun}
+                        testInformation={testInformation}/>
+            </li>
+            <li>
+                <Subtest subtestName={"Spelling"}
+                        studentName={studentName}
+                        studentPronoun={studentPronoun}
+                        testInformation={testInformation}/>
+            </li>
+            <li>
+                <Subtest subtestName={"Orthographic Choice"}
+                        studentName={studentName}
+                        studentPronoun={studentPronoun}
+                        testInformation={testInformation}/>
+            </li>
+ */
