@@ -42,24 +42,26 @@ export default function Wiat4ReportGenerator() {
         return allCompositeComponents
     }
 
-    
+
     return (
         <>
         <div className="titleBanner">
             <h1> Wiat-4 Report Generator</h1>
         </div>
         
-        <div className="fileAccessor">
+        <div className="csvUploader">
             <FileAccess fileContents={fileContents}
                         setFileContents={setFileContents}/>
         </div>
-        <div className="reportHeader">
-            {allTestDataDict!=="" && <Header sName={studentName}
-                                             examinerName={examinerName}
-                                             date={dateOfExam}/>}
-        </div>
-        <div className="mainBody">
-            { allTestDataDict!=="" &&   generateAllComposites() }
+        <div className="wiat4Report" id="wiat4Report">
+            <div className="reportHeader">
+                {allTestDataDict!=="" && <Header sName={studentName}
+                                                examinerName={examinerName}
+                                                date={dateOfExam}/>}
+            </div>
+            <div className="composites">
+                { allTestDataDict!=="" &&   generateAllComposites() }
+            </div>
         </div>
         </>
     )

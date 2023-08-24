@@ -1,0 +1,48 @@
+
+.titleBanner {
+    display: flex;
+    min-height:auto;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color:cornflowerblue;
+    font-style:normal;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+.csvUploader {
+    border: 5px solid black;
+    margin-left: auto;
+    padding-left: 10px;
+    display: grid;
+}
+
+.csvTitle {
+    font-size:x-large;
+    font-weight: bold;
+}
+
+.csvBody{
+    padding-top: 5px;
+    padding-left: 20px;
+}
+.csvBody label {
+    font-style: italic;
+}
+.csvBody input{
+    padding-left: 3px;
+    font-weight: 700
+}
+
+.csvButton {
+    padding-top: 10px;
+    font-weight: 700
+}
+
+.wiat4Report {
+    padding-left: 10%;
+    padding-right: 30%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}

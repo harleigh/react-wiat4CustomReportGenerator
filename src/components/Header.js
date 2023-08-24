@@ -44,10 +44,12 @@ export function Header( {sName, examinerName, date} ) {
     return(
         <>
             <div>
+                <h3><strong>WIAT-4 Score Report</strong></h3>
+            </div>
+            <div>
                 <p>Name of Student: {sName} </p>
                 <p>Examiner: {examinerName}</p>
                 <p>Date of Examination: {date}</p>
-                <p> <strong>[[WIAT-4]] Score Report</strong></p>
                 {testDescription()}
                 {metrics()}
             </div>

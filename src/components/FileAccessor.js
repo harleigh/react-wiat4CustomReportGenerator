@@ -24,7 +24,7 @@ export function FileAccess({fileContents, setFileContents}) {
      * Post: We read the entire contents of the csv file 
      */
     const onProcessCsvFile = () =>{
-        if(csvFileObj===""){return;}
+        
         const fileReader = new FileReader();
         //setting the onload functionality of the file reader
         fileReader.onload = (e)=> {
@@ -39,20 +39,23 @@ export function FileAccess({fileContents, setFileContents}) {
    
     return(
         <>
-            <div className="uploadCSV">
-                <h1>Upload CSV File...</h1>
+            <div className="csvTitle">
+                Upload CSV File
             </div>
             
-            <div className="fileSelector">
-                <label htmlFor="csv-selector">Select a file:</label>
+            <div className="csvBody">
+                <label htmlFor="csv-selector">
+                    Select a file:
+                 </label>
                 <input type="file"
                     id="csv-selector"
                     name="csv-selector"
                     accept=".csv"
                     onChange={ (e) => setCvsFileObj(e.target.files[0])}
                     multiple={false}/>
-                    <div className="fileSelectorButton">
-                        <button onClick={onProcessCsvFile}> Process CSV File </button>
+                    <div className="csvButton">
+                        <button onClick={onProcessCsvFile}
+                                disabled={csvFileObj===""}> Process CSV File </button>
                     </div>
             </div>
 
