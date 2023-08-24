@@ -43,9 +43,8 @@ export default function Wiat4ReportGenerator() {
     }
 
     const  selectElementContents = (el) => {
-        if(allTestDataDict===""){
-            return
-        }
+        if(allTestDataDict===""){return}
+        
         var range = document.createRange();
         range.selectNodeContents(el);
         var sel = window.getSelection();
@@ -68,7 +67,13 @@ export default function Wiat4ReportGenerator() {
             <FileAccess fileContents={fileContents}
                         setFileContents={setFileContents}/>
         </div>
-        <button onClick={() => selectElementContents(document.getElementById("wiat4Report"))}/>
+
+        <div>
+            <button className="selectAllInReport"
+                    onClick={() => selectElementContents(document.getElementById("wiat4Report"))}
+                    disabled={allTestDataDict===""}>Select All in Report</button>
+        </div>
+
         <div className="wiat4Report" id="wiat4Report">
             <div className="reportHeader">
                 {allTestDataDict!=="" && <Header sName={studentName}
@@ -82,11 +87,3 @@ export default function Wiat4ReportGenerator() {
         </>
     )
 }
-
-/* 
-        <div className="compositeBody">
-            { allTestDataDict!=="" &&<Composite compositeName={"Written Expression"}
-                                        studentName={"Student-Name"}
-                                        testInformation={allTestDataDict}/>}
-        </div>
-*/
