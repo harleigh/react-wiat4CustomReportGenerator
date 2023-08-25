@@ -4,6 +4,7 @@ There is a sample of the expected csv formatting in this project (see FormatForT
 
 This program works in browser, and from the browser you can copy the generated report and move it to your word-editor of choice for final conlcusions etc.
 
+Run this program with the sample csv file (see FormatForTemplateOfScores.csv) to see what you get!
 
 
 A general breakdown of the WIAT-4 test and the terminology used:
