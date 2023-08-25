@@ -15,7 +15,7 @@
  *       character U+002d "-", the lesser known "–" came from a copy/
  *       paste from a wiat-4 exam
  */
-export const compositesDict = {
+export const compositesToSubtestsDict = {
     "Oral Language": ["Listening Comprehension", "Oral Expression"], 
     "Phonological Processing": ["Pseudoword Decoding", "Phonemic Proficiency"],
     "Orthographic Processing Extended": ["Orthographic Fluency", "Spelling", "Orthographic Choice"],
@@ -37,46 +37,10 @@ export const compositesDict = {
  * Additionally, some subtests are referenced multiple times in the wiat-4 exam, but they only
  * appear once in this dictionary (as the scores etc are simply referenced)
  */
-export const subTestsDict = {
-    //"Oral Language" composite
+export const subTestsToComponentsDict = {
         "Listening Comprehension": ["Receptive Vocabulary", "Oral Discourse Comprehension"],
         "Oral Expression": ["Expressive Vocabulary", "Oral Word Fluency", "Sentence Repetition"],
-
-    //"Phonological Processing" composite
-        "Pseudoword Decoding": [],
-        "Phonemic Proficiency":[],
-
-    //"Orthographic Processing Extended" composite
-        "Orthographic Fluency":[],
-        "Spelling":[],
-        "Orthographic Choice":[],
-
-    //"Reading" composite
-        "Word Reading":[],
-        "Reading Comprehension":[], 
-
-    //"Basic Reading (and Decoding)" composite
-        //is built from subtests from other locations
-
-    //"Reading Fluency" composite (where Orthographic Fluency is referenced )
-        "Oral Reading Fluency":[],
-        "Decoding Fluency":[],
-
-    //"Written Expression" composite ; Spelling is referenced earlier
         "Sentence Composition":["Sentence Building", "Sentence Combining"],
-        "Essay Composition":[], 
-
-    //"Writing Fluency" composite
-        "Sentence Writing Fluency":[],
-
-    //"Mathematics" composite
-        "Math Problem Solving":[],
-        "Numerical Operations":[],
-
-    //"Math Fluency" composite
-        "Math Fluency–Addition":[],
-        "Math Fluency–Subtraction":[], 
-        "Math Fluency–Multiplication":[],
 }
 
 /**

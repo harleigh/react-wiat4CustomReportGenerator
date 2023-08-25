@@ -1,4 +1,5 @@
-import {compositesDict, subTestsDict} from './WIAT-4-Tests'
+import { compositesToSubtestsDict,
+         subTestsToComponentsDict} from './WIAT-4-Tests'
 
 /**
  * There is an example of the csv file formatting in this project. We are
@@ -9,23 +10,16 @@ import {compositesDict, subTestsDict} from './WIAT-4-Tests'
  * -each composite/subtest/component(of subtest) is on it's own row with order
  *  of TestName, Score, Stuent Specific Info for said test
  * 
- * Big Assumption Here:
+ * Big Note Here:
  * -The WIAT-4 has Composites that repeat tests, for example composite
  *  "Written Expression" repeats the "Spelling" subtest. The "Spelling" subtest
- *  is first in the composite "Orthographic Processing Extended". I assume that
- *  student specific information (SSI) is never in a referenced test, SSI is 
- *  always written where the subtest first appears. So, for our example "Spelling"
- *  would have its SSI in "Orthographic Processing Extended"; there would be no
- *  SSI for "Spelling" in "Written Expression".
+ *  is first in the composite "Orthographic Processing Extended".
  * 
- * Note on Assumption: I could have just removed all referenced tests from the
- *                     sample csv template but I thought it possibly confusing,
- *      regarding WIAT-4 testing. e.g. Basic Reading (and Decoding) is noting but
- *      referenced tests. The exmaple csv file could have all of that section 
- *      removed, but perhaps people would think "Where is Basic Reading (and Decoding)"?
- *  Who knows, perhaps I will remove all repeated subtests from the csv file, and this
- *  bit of discussion will be buried in the march of commits :) as why have people type
- *  it twice if it's used once
+ *  The exampe csv has all of the repeated tests removed, as why should the user
+ *  imput the same score twice? the dictionaries in "WIAT-4-Tests" manage which 
+ *  subtests are repeated and where they are repeated (e.g. see the dictionary
+ *  "compositesWithRefsDict" etc)
+ * 
  * /
 
 
@@ -58,16 +52,21 @@ export function processCsvFile( fileContents ){
     /**
      * Honesty, I think the code reads better with the tripple for loop
      * and not with the ().().().... seen with javascript :)
+     * 
+     * Note that (most) subtests do not have components, so we do a quick
+     * check if we have some components before bullying forwards
      */
-     for(const c in compositesDict) {
+     for(const c in compositesToSubtestsDict) {
         collectTestEntry(dataDict, rows, c)
-        const allSubtests = compositesDict[c];
+        const allSubtests = compositesToSubtestsDict[c];
          for( const subtest of allSubtests) {
             collectTestEntry(dataDict, rows, subtest)
-            const allComponents = subTestsDict[subtest]
-            for( const component of allComponents) {
-                collectTestEntry(dataDict, rows, component)
-            } 
+            const allComponents = subTestsToComponentsDict[subtest]
+            if( allComponents ) {
+                for( const component of allComponents) {
+                    collectTestEntry(dataDict, rows, component)
+                } 
+            }
         } 
     }
 
@@ -118,7 +117,7 @@ function getHeaderInfo(dataDict, rows){
  * If we can't find a test in the csv file, we stick "undefined" as a key 
  */
 function collectTestEntry(dataDict, dataRows, testName){
-    var [key, score, ssd] = [undefined, "", ""]
+    var [key, score, ssd] = [undefined, "" , ""]
     try {
         [key, score, ssd] = getTestData(dataRows, testName)
     }catch(e) {

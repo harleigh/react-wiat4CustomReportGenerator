@@ -1,4 +1,6 @@
-import {testDescriptionDict, subTestsDict, getMeasure} from "../js-utilities/WIAT-4-Tests"
+import { testDescriptionDict,
+         subTestsToComponentsDict,
+         getMeasure} from "../js-utilities/WIAT-4-Tests"
 import { Component } from "./Component"
 
 //testInformation contains student specific info and test scores
@@ -18,8 +20,8 @@ import { Component } from "./Component"
 export function Subtest({subtestName, studentName, testInformation, parentCompositeToRef}) {
 
     const [score, ssi] = testInformation[subtestName]
-    const components = subTestsDict[subtestName]
-    const hasComponents = components.length
+    const components = subTestsToComponentsDict[subtestName]
+    const hasComponents = (components && components.length?true:false)
 
 
     /**

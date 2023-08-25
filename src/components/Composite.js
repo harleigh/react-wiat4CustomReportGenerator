@@ -1,4 +1,4 @@
-import {compositesDict,
+import {compositesToSubtestsDict,
         getMeasure,
         compositesWithRefsDict,
         parentOfRefsDict} from "../js-utilities/WIAT-4-Tests"
@@ -18,7 +18,7 @@ import {Subtest} from './Subtest'
  */
 export function Composite({compositeName, studentName, testInformation}) {
 
-    const subtestNames = compositesDict[compositeName];   
+    const subtestNames = compositesToSubtestsDict[compositeName];   
     const [score, ssi] = testInformation[compositeName]
     
     /**

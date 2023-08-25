@@ -3,7 +3,7 @@ import {FileAccess} from "./components/FileAccessor" ;
 import {Header} from "./components/Header"
 import {processCsvFile} from './js-utilities/processCsvFile';
 import {Composite} from "./components/Composite";
-import {compositesDict} from "./js-utilities/WIAT-4-Tests"
+import {compositesToSubtestsDict} from "./js-utilities/WIAT-4-Tests"
 
 
 /**
@@ -56,7 +56,7 @@ export default function Wiat4ReportGenerator() {
      */
     const generateAllComposites= () => {
 
-        const allCompositeNames = Object.keys(compositesDict)
+        const allCompositeNames = Object.keys(compositesToSubtestsDict)
         const allCompositeComponents = allCompositeNames.map( (compositeName, idx) => {
             return (
                 <div className="compositeBody" key={idx}>

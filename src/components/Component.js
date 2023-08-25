@@ -1,4 +1,5 @@
-import {testDescriptionDict, getMeasure} from "../js-utilities/WIAT-4-Tests"
+import {testDescriptionDict,
+        getMeasure} from "../js-utilities/WIAT-4-Tests"
 
 /**
  * Certain subtests have components (which are tests within the subtest). Components

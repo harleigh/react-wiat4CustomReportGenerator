@@ -1,6 +1,6 @@
 Name of Student,Student Name,
 Examiner Name,Examiner Name,
-Date of Testing, Jan 55, 2027,
+Date of Testing, Jan 55, 2027,(please have date format in Month Day, Year (i.e. keep that comma in there)
 ,,
 Composite/Subtest,Standard score,Student Specific Information
 Oral Language,73,Student data for Oral Language.
@@ -22,15 +22,10 @@ Reading,81,Student data for Reading.
 Word Reading,82,Student data for Word Reading.
 Reading Comprehension,85,Student data for Reading Comp.
 Basic Reading (and Decoding),86,Here are some observations on the Student regarding Basic Reading (and Decoding).
-Pseudoword Decoding*,97,Note: Marked this as a reference field; Student specific data should not be on the astrix test bits
-Phonemic Proficiency*,85,Note: Student specific data should not be on the astrix test bits
-Word Reading*,82,Note: Student specific data should not be on the astrix test bits
 Reading Fluency,101,Student data for Reading Fluency.
 Oral Reading Fluency,134,Student data for Oral Reading Fluency.
-Orthographic Fluency*,77,Note: Student specific data should not be on the astrix test bits.
 Decoding Fluency,93,Student data for  Decoding Fluency.
 Written Expression,80,Student data for Written Expression.
-Spelling*,79,Note: Marked this as a reference field; Student specific data should not be on the astrix test bits.
 Sentence Composition,92,Student data for Sentence Composition.
 Essay Composition,81,Student data for Essay Composition.
 Sentence Composition,92,Student data for Sentence Composition.
@@ -46,5 +41,3 @@ Math Fluency,70,Student data for Math Fluency.
 Math Fluency–Addition,76,Student data for Math fluency addition.
 Math Fluency–Subtraction,71,Student data for Math Fluency subtraction.
 Math Fluency–Multiplication,72,Student data for Math Fluency Multiplication.
-,,
-*subtest is repeated from another category,,
