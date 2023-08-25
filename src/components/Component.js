@@ -1,24 +1,36 @@
 import {testDescriptionDict, getMeasure} from "../js-utilities/WIAT-4-Tests"
 
-//testInformation contains student specific info and test scores
-//components are never repeated from another category in the wiat-4 exam
+/**
+ * Certain subtests have components (which are tests within the subtest). Components
+ * never have any deeper tests; they are the leaves of the WIAT-4 test.
+ * 
+ * componentName: Name of current component
+ * studentName: Name of student who took exam
+ * testInformation: a dictionary in the form of {TestName: [Score, Student Specific Info]}
+ */
 export function Component({componentName, studentName,  testInformation}) {
 
     const [score, ssi] = testInformation[componentName]
 
-    
-    // [[Student_Name]]'s overall performance within this composite scored within the [[Very Low]] range, with a standard score of 73.
+    /**
+     * Specific conclusion to the component
+     */
     const buildComponentConclusion = () => {
         return (
             <>
             {studentName}'s performance within this component scored
-            within the <strong>{getMeasure(score)}</strong> range, with a standard score of <strong>{score}</strong>.
+            within the <strong>{getMeasure(score)}</strong> range,
+            with a standard score of <strong>{score}</strong>.
             </>
         )
     }// end build conclusion
 
+    /**
+     * Like others, the specific description of this test is pulled from a dictionary
+     * that contains all of the specific test descriptions. Be sure to see the 
+     * comments in "WIAT-4-Tests.js"
+     */
     const buildComponentDescription = () => {
-        //console.log("I am trying to find testDescriptionDict[componentName], where key is ", componentName)
         return ( <>
                 <em>{componentName}</em>: {testDescriptionDict[componentName]}
                 </>
@@ -31,4 +43,4 @@ export function Component({componentName, studentName,  testInformation}) {
         </>
     )
 
-}
+}// end the Component (of the wiat-4 exam) component :)

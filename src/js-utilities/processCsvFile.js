@@ -1,15 +1,49 @@
 import {compositesDict, subTestsDict} from './WIAT-4-Tests'
 
 /**
+ * There is an example of the csv file formatting in this project. We are
+ * -Expecting three columns
+ * -Each entry is on it's own row
+ * -First three entries, in order are: Stuent Name, Examiner Name, Date of Exam
+ * 
+ * -each composite/subtest/component(of subtest) is on it's own row with order
+ *  of TestName, Score, Stuent Specific Info for said test
+ * 
+ * Big Assumption Here:
+ * -The WIAT-4 has Composites that repeat tests, for example composite
+ *  "Written Expression" repeats the "Spelling" subtest. The "Spelling" subtest
+ *  is first in the composite "Orthographic Processing Extended". I assume that
+ *  student specific information (SSI) is never in a referenced test, SSI is 
+ *  always written where the subtest first appears. So, for our example "Spelling"
+ *  would have its SSI in "Orthographic Processing Extended"; there would be no
+ *  SSI for "Spelling" in "Written Expression".
+ * 
+ * Note on Assumption: I could have just removed all referenced tests from the
+ *                     sample csv template but I thought it possibly confusing,
+ *      regarding WIAT-4 testing. e.g. Basic Reading (and Decoding) is noting but
+ *      referenced tests. The exmaple csv file could have all of that section 
+ *      removed, but perhaps people would think "Where is Basic Reading (and Decoding)"?
+ *  Who knows, perhaps I will remove all repeated subtests from the csv file, and this
+ *  bit of discussion will be buried in the march of commits :) as why have people type
+ *  it twice if it's used once
+ * /
+
+
+/**
  * pull all data out of the CSV file and return it as a 
  * dictionary object keyed with the dictionaries in "WIAT-4-Tests" file 
+ * 
+ * The orginization of the data dictionary is
+ *     {TestName: [Score, Student Specific Data]}
+ * where testName is either a composite, subtest, or component of subtest 
  */
 export function processCsvFile( fileContents ){
+
+    //this will hold all the test data
     const dataDict = {}
 
     //note, csv files have "\r" for last record in row
     const rows = fileContents.split('\r\n')
-    //console.log(rows)
 
     try{ 
         preValidationCsvFile(rows)
@@ -17,36 +51,40 @@ export function processCsvFile( fileContents ){
         console.error(e)
     }
 
+    //this is: Name of Student, Examiner, Date of exam
     getHeaderInfo(dataDict, rows)
     
 
+    /**
+     * Honesty, I think the code reads better with the tripple for loop
+     * and not with the ().().().... seen with javascript :)
+     */
      for(const c in compositesDict) {
         collectTestEntry(dataDict, rows, c)
-        //console.log("Compsite:", c)
         const allSubtests = compositesDict[c];
-        //console.log("   Subtests", allSubtests)
          for( const subtest of allSubtests) {
-            //console.log("   I am collecting data for ", subtest)
             collectTestEntry(dataDict, rows, subtest)
             const allComponents = subTestsDict[subtest]
-            //console.log("      Components", allComponents)
             for( const component of allComponents) {
-                //console.log("      I am collecting data for", component)
                 collectTestEntry(dataDict, rows, component)
             } 
         } 
     }
+
+
     try{
         postValidationCsvFile(dataDict)
     }catch(e){
         console.error(e)
     }
 
-    //console.log(dataDict)
     return dataDict
 }
 
 
+/**
+ * Checks to see if we have three columns in a row 
+ */
 function preValidationCsvFile(rows) {
     const numCols = rows[0].split(",").length
     if(  numCols >3 ){
@@ -54,6 +92,9 @@ function preValidationCsvFile(rows) {
     }
 }
 
+/**
+ * Checks to see if we are missing a test in the dictionary 
+ */
 function postValidationCsvFile(dataDict) {
     if( undefined in dataDict){
         throw Error("An Entry was not found from the CSV")
@@ -73,8 +114,11 @@ function getHeaderInfo(dataDict, rows){
     dataDict[key] = monthDate + "," + year;
 }
 
+/**
+ * If we can't find a test in the csv file, we stick "undefined" as a key 
+ */
 function collectTestEntry(dataDict, dataRows, testName){
-    let [key, score, ssd] = [undefined, "", ""]
+    var [key, score, ssd] = [undefined, "", ""]
     try {
         [key, score, ssd] = getTestData(dataRows, testName)
     }catch(e) {
@@ -88,9 +132,6 @@ function getTestData(dataRows, testName){
     if(entry === undefined) {
         throw new Error('Critical: I could not find ' + testName);
     }
-    //console.log(" I tried to find ", testName, "and got", entry )
     const [key, score, ssd] = entry.split(",")
-    //console.log("I searched for ", testName)
-    //console.log("I Found: ", key, score, ssd)
     return [key, score, ssd]
 }

@@ -1,7 +1,19 @@
+/**
+ * The most critical bit of the project is in this file. We have dictionaries, keyed on 
+ * the names of the tests (be they composite, subtest or component) that tie together the
+ * structure of the WIAT-4 Exam
+ */
+
 
 /**
+ * This Dictionary tells us what subtests are associated with each Composite.
+ * 
  * Keys: Composites of the wiat-4 test
  * Values: all subtests of the composite
+ * 
+ * Note: There is an issue with the character U+2013 "–" with ASCII 
+ *       character U+002d "-", the lesser known "–" came from a copy/
+ *       paste from a wiat-4 exam
  */
 export const compositesDict = {
     "Oral Language": ["Listening Comprehension", "Oral Expression"], 
@@ -17,6 +29,8 @@ export const compositesDict = {
 }
 
 /**
+ * This dictionary tells us what components are associated with each subtest
+ * 
  * Keys: Subtests of the wiat-4 test
  * Values: components of the subtest (if any--if none then []); not too many of the subtests
  *         have components
@@ -115,6 +129,13 @@ export const compositesWithRefsDict = {
     "Written Expression": ["Spelling"]
 }
 
+/**
+ * This dictionary tells us where the repeated subtest originally appears
+ * For example: "Pseudoword Decoding" is repeated in the composite "Basic Reading (and Decoding)",
+ *              and is first discussed in "Phonological Processing", so in the report, at the 
+ *              repeated test, we say, "Hey, go look at "Phonological Processing" for the student
+ *              specific info" (because we don't want to display it twice)
+ */
 export const parentOfRefsDict ={
     "Pseudoword Decoding": "Phonological Processing",
     "Phonemic Proficiency": "Phonological Processing",
@@ -122,9 +143,7 @@ export const parentOfRefsDict ={
     "Orthographic Fluency": "Orthographic Processing Extended",
     "Spelling": "Orthographic Processing Extended"
 }
-/* export const subtestRefParentDict ={
-    "Pseudoword Decoding": 
-} */
+
 
 /**
  * Utility function
@@ -156,42 +175,3 @@ export const  getMeasure = (studentScore) =>{
     }
     return measureForScore
 }
-
-
-/**
- * Format a list of subtest names into a comma seperated string
- * @param {*} list a list of subtest names 
- * @returns a string with oxford (?) commas
- *   e.g. IN:  ["Orthographic Fluency", "Spelling", "Orthographic Choice"]
- *        OUT: "Orthographic Fluency, Spelling and Orthographic Choice"
- */
-/* 
-export const getSubtestNames = (list) => {
-    const lastSubtest = list.pop()
-    if(list.length > 0) {
-        return list.join(", ") + " and " + lastSubtest;
-    }
-    else {
-        return lastSubtest
-    }
-}
-
- */
-
-
-
-
-
-/**
- * Practice and testing code
- */
-/* console.log(compositesDict)
-console.log(compositesDict["Oral Language"].length)
-const Student_Name = "Student_Name"
-for(var c in compositesDict) {
-    var subtests = compositesDict[c];
-    //console.log(value)
-    const str = "The " + c +" Composite is calculated based on " + Student_Name + "'s performances across the "+ getSubtestNames(subtests) + " subtests."
-    console.log(str)
-    console.log()
-} */

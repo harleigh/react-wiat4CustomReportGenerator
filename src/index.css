@@ -59,3 +59,8 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
 }
+
+
+.noBullList {
+    list-style-type: none;
+}

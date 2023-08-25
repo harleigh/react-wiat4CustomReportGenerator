@@ -1,7 +1,21 @@
-import {compositesDict, getMeasure, compositesWithRefsDict, parentOfRefsDict} from "../js-utilities/WIAT-4-Tests"
+import {compositesDict,
+        getMeasure,
+        compositesWithRefsDict,
+        parentOfRefsDict} from "../js-utilities/WIAT-4-Tests"
 import {Subtest} from './Subtest'
 
 //ssi: Student Specific Information (for the current composite)
+/**
+ * A composite of the WIAT-4 test contains one or more subtests, each
+ * subtest can have 0-3 components (tests of the subtest)
+ *  compositeName: Name of this current composite
+ *  StudentName:   name of student who took the exam
+ *  testInformation: a dictionary in the form of {TestName: [Score, Student Specific Info]}
+ * 
+ * this component returns a fully filled-out composite of the WIAT-4 exam, complete
+ * with all descriptions, student specific information, scores of the composite, all
+ * subtests, and any components to the subtests.
+ */
 export function Composite({compositeName, studentName, testInformation}) {
 
     const subtestNames = compositesDict[compositeName];   
@@ -21,8 +35,7 @@ export function Composite({compositeName, studentName, testInformation}) {
                 else {
                     return <div key={idx} style={{display:"inline"}}>{idx>0&&idx<lastIdx? ",":""}<strong> {v}</strong></div>
                 } 
-            }
-        )
+            })//end map
 
         return(
             <div style={{display:"inline"}}>
@@ -32,7 +45,6 @@ export function Composite({compositeName, studentName, testInformation}) {
     }// end building the subtest names
 
 
-    // [[Student_Name]]'s overall performance within this composite scored within the [[Very Low]] range, with a standard score of 73.
     const buildCompositeConclusion = () => {
         return (
             <>
@@ -52,13 +64,20 @@ export function Composite({compositeName, studentName, testInformation}) {
     }// end building the description of the composite
 
 
+    /**
+     * Build all of the subtests for this current comonent.
+     * 
+     * Some of the subtests are repeated from another compsite, so we
+     * check if the current composite contains referenced tests, and
+     * if it does, then we find the original composite that had the
+     * subtest.
+     */
     const buildAllSubtests = () => {
 
-        const res = subtestNames.map( (subtest, idx) => {
+        const allSubtestsOfComposite = subtestNames.map( (subtest, idx) => {
             var parentToRef = ""
             if (compositeName in compositesWithRefsDict){
                 parentToRef = parentOfRefsDict[subtest]
-                //console.log("Subtest ", subtest, " is referenced, parent is ", parentToRef)
             }
             return (
                 <li key={idx}>
@@ -67,11 +86,14 @@ export function Composite({compositeName, studentName, testInformation}) {
                         testInformation={testInformation}
                         parentCompositeToRef={parentToRef}/>
                 </li>
-
             )
-        })
-        return res
-    }
+        })//end map
+
+        //all subtests of this current composite
+        return allSubtestsOfComposite
+    }//end building all of the subtests of the current composite
+
+
 
     return (
         <>
@@ -88,31 +110,6 @@ export function Composite({compositeName, studentName, testInformation}) {
                 </ul>
             </div>
         </div>
-
-        
         </>
     )
-}
-
-/**
- * 
- * 
- * <li>
-                <Subtest subtestName={"Orthographic Fluency"}
-                        studentName={studentName}
-                        studentPronoun={studentPronoun}
-                        testInformation={testInformation}/>
-            </li>
-            <li>
-                <Subtest subtestName={"Spelling"}
-                        studentName={studentName}
-                        studentPronoun={studentPronoun}
-                        testInformation={testInformation}/>
-            </li>
-            <li>
-                <Subtest subtestName={"Orthographic Choice"}
-                        studentName={studentName}
-                        studentPronoun={studentPronoun}
-                        testInformation={testInformation}/>
-            </li>
- */
+}// end composite component

@@ -1,20 +1,12 @@
-//every begining has a begining, and this is this begining. And, being that
-//this is the begining, take it with a grain of salt as there is quite a road
-//yet being paved; as I am learning, all code and documentation are "as is"
-
 import { useState } from "react";
-
-/**
- * Component returns a very basic table of each row of the cvs file 
- */
-
 
 
 /**
  * Basic component lets you pick a single csv file out and then
- * stores the file contents in a state for futher processing
+ * presents a button that, when pressed stores the file contents,
+ * as plain text, for futher processing
  */
-export function FileAccess({fileContents, setFileContents}) {
+export function FileAccess({setFileContents}) {
     const [csvFileObj, setCvsFileObj] = useState("");
     
 
@@ -22,6 +14,8 @@ export function FileAccess({fileContents, setFileContents}) {
      * Pre: the csvFile has been set by the onChange event of the
      *      <input> component
      * Post: We read the entire contents of the csv file 
+     *       and set them so the parent component can process the
+     *       data
      */
     const onProcessCsvFile = () =>{
         
@@ -30,7 +24,6 @@ export function FileAccess({fileContents, setFileContents}) {
         fileReader.onload = (e)=> {
             const text = e.target.result;
             setFileContents(text)
-            //process data here...
         }
         //read the csv file as text with the onload behaviour set as above
         fileReader.readAsText(csvFileObj)
@@ -43,6 +36,7 @@ export function FileAccess({fileContents, setFileContents}) {
                 Upload CSV File
             </div>
             
+            {/* File uploader, to state a single csv file for processing */}
             <div className="csvBody">
                 <label htmlFor="csv-selector">
                     Select a file:
@@ -53,16 +47,16 @@ export function FileAccess({fileContents, setFileContents}) {
                     accept=".csv"
                     onChange={ (e) => setCvsFileObj(e.target.files[0])}
                     multiple={false}/>
-                    <div className="csvButton">
-                        <button onClick={onProcessCsvFile}
-                                disabled={csvFileObj===""}> Process CSV File </button>
-                    </div>
-            </div>
 
-                
+                {/* Button to Process the Uploaded File:
+                    I did not want to automatically process whatever csv file was selected
+                    by the user in the <input> bit, instead I wanted them to make sure they
+                    have the desired file, and activly choose to process the file */}
+                <div className="csvButton">
+                    <button onClick={onProcessCsvFile}
+                            disabled={csvFileObj===""}> Process CSV File </button>
+                </div>
+            </div>
         </>
     );
 }//end file access component
-
-//later, we can break the file access into another component;
-// a parent that has a file component and a pretty display component

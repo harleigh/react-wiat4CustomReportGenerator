@@ -1,6 +1,15 @@
-
+/**
+ * A component that is text-only providing basic information regarding the WIAT-4 exam
+ * In: Student Name, Name of person who administered the exam, and date of examination
+ * 
+ */
 export function Header( {sName, examinerName, date} ) {
 
+    /**
+     * Basic description of WIAT-4 test for the generated report; apparently this is very
+     * helpful for SPED teachers who receive students from out of state, as tests differ
+     * from state to state (and every decade or so from what I've heard)  
+     */
     const testDescription = () => {
 
         return (
@@ -16,6 +25,11 @@ export function Header( {sName, examinerName, date} ) {
         )
     }
 
+    /**
+     *  Explanation of the Metrics for the WIAT-4 test, like testDescription(), this is
+     *  helpful for SPED teachers who might receive a student from out of state and are
+     *  not familiar with the WIAT-4 test. Metrics are so important, as it's how we measure!
+     */
     const metrics = () => {
         
         return (
@@ -26,7 +40,7 @@ export function Header( {sName, examinerName, date} ) {
                 are as follows:
             </p>
             <div>
-                <ul style={ {listStyle: "none"} }>
+                <ul className="noBullList">
                     <li>130 and above: Extremely High</li>
                     <li>120 to &lt; 130: Very High</li>
                     <li>110 to &lt; 120:  High Average</li>
