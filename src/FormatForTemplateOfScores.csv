@@ -2,43 +2,42 @@
 Examiner Name:,Examiner Name,
 Date of Testing:,"Jan 55, 2027","<<<< please have date format in ""Month Day, Year"" (i.e. keep that comma in there)"
 Composite/Subtest/Component,Standard score,Student Specific Information
-Oral Language,73,
-Listening Comprehension,73,
-Receptive Vocabulary,75,
-Oral Discourse Comprehension,79,
-Oral Expression,76,
-Expressive Vocabulary,75,
-Oral Word Fluency,96,
-Sentence Repetition,70,
-Phonological Processing,89,
-Pseudoword Decoding,97,
-Phonemic Proficiency,85,
-Orthographic Processing Extended,79,
-Orthographic Fluency,77,
-Spelling,79,
-Orthographic Choice,88,
-Reading,81,
-Word Reading,82,
-Reading Comprehension,85,
-Basic Reading (and Decoding),86,
-Reading Fluency,101,
-Oral Reading Fluency,134,
-Decoding Fluency,93,
-Written Expression,80,
-Sentence Composition,92,
-Essay Composition,81,
-Sentence Building,93,
-Sentence Combining,95,
-Writing Fluency,-,
-Alphabet Writing Fluency,-,
-Sentence Writing Fluency,82,
-Mathematics,67,
-Math Problem Solving,68,
-Numerical Operations,71,
-Math Fluency,70,
-Math Fluency–Addition,76,
-Math Fluency–Subtraction,71,
-Math Fluency–Multiplication,72,
+Oral Language,73,Student Specific Information for the Oral Language Composite.
+Listening Comprehension,73,Student Specific Information for the Listening Comprehension subtest.
+Receptive Vocabulary,75,Student Specific Information for the Receptive Vocabulary subtest.
+Oral Discourse Comprehension,79,Student Specific Information for the Oral Discourse Comprehension.
+Oral Expression,76,Student Specific Information for the Oral Expression subtest.
+Expressive Vocabulary,75,Student Specific Information for the Expressive Vocabulary subtest.
+Oral Word Fluency,96,Student Specific Information for the Oral Word Fluency subtest.
+Sentence Repetition,70,Student Specific Information for the Sentence Repetition subtest.
+Phonological Processing,89,Student Specific Information for the Phonological Processing Composite.
+Pseudoword Decoding,97,Student Specific Information for the Pseudoword Decoding subtest.
+Phonemic Proficiency,85,Student Specific Information for Phonemic Proficiency subtest.
+Orthographic Processing Extended,79,Student Specific Information for the Orthographic Processing Composite.
+Orthographic Fluency,77,Student Specific Information for the Orthographic Fluency subtest.
+Spelling,79,Student Specific Information for the Spelling subtest.
+Orthographic Choice,88,Student Specific Information for the Orthographic Choice subtest.
+Reading,81,Student Specific Information for the Reading Composite.
+Word Reading,82,Student Specific Information for the Word Reading subtest.
+Reading Comprehension,85,Student Specific Information for the Reading Comprehension subtest.
+Basic Reading (and Decoding),86,Student Specific Information for the Basic Reading (and Decoding) Composite.
+Reading Fluency,101,Student Specific Information for the Reading Fluency Composite.
+Oral Reading Fluency,134,Student Specific Information for the Oral Reading Fluency subtest.
+Decoding Fluency,93,Student Specific Information for the Decoding Fluency subtest.
+Written Expression,80,Student Specific Information for the Written Expression Composite.
+Sentence Composition,92,Student Specific Information for the Sentence Composition subtest.
+Essay Composition,81,Student Specific Information for the Essay Composition subtest.
+Sentence Building,93,Student Specific Information for the Sentence Building subtest.
+Sentence Combining,95,Student Specific Information for the Sentence Combining subtest.
+Writing Fluency,-,Student Specific Information for the Writing Fluency composite.
+Sentence Writing Fluency,82,Student Specific Information for Sentence Writing Fluency subtest.
+Mathematics,67,Student Specific Information for the Mathematics Composite.
+Math Problem Solving,68,Student Specific Information for the Math Problem Solving subtest.
+Numerical Operations,71,Student Specific Information for the Numerical Operations subtest.
+Math Fluency,70,Student Specific Information for the Math Fluency Composite.
+Math Fluency–Addition,76,Student Specific Information for the Math Fluency–Addition subtest.
+Math Fluency–Subtraction,71,Student Specific Information for the Math Fluency–Subtraction subtest.
+Math Fluency–Multiplication,72,Student Specific Information for Math Fluency–Multiplication subtest.
 ,,
 Conclusions:,,"This is where we can place all of our conclusions about Student-Name's performance on the exam. This way, this single CSV file will contain all of the important results of the student at-a-glance, which I have been told will be a very useful document for the Special Education Teacher as before a meeting, the teacher can look at all of the information in one place (especially when they have so many students on their caseload), which is excellent, as any functionality which will improve the work-flow of a teacher, or simply improve the quality of work-life of a teacher, is certainly worth the (minor) efforts to include this functionality in the report generator!  With Word Wrapping on a cell, the conclusion can be very readable indeed within a spreadsheet application! Now, all of the student specific data and all of the teacher's observations/recordings are in one single document; quite glorious indeed!
 
