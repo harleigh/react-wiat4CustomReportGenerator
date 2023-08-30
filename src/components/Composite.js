@@ -16,6 +16,12 @@ import {Subtest} from './Subtest'
  * with all descriptions, student specific information, scores of the composite, all
  * subtests, and any components to the subtests.
  */
+/**
+*  Note: The Writing Fluency Composite only has one subtest "Sentence Writing Fluency" since the
+* "Alphabet Writing Fluency" is only administered to grades 3 and below (so we will see some)
+* special logic regarding conjugation etc.
+* 
+*/
 export function Composite({compositeName, studentName, testInformation}) {
 
     const subtestNames = compositesToSubtestsDict[compositeName];   
@@ -29,7 +35,7 @@ export function Composite({compositeName, studentName, testInformation}) {
 
         const formatedNames =  subtestNames.map(
             (v, idx) => {
-                if( idx===lastIdx){
+                if( idx===lastIdx && subtestNames.length!==1){
                     return <div key={idx} style={{display:"inline"}}> and <strong > {v} </strong></div> 
                 }
                 else {
@@ -44,21 +50,33 @@ export function Composite({compositeName, studentName, testInformation}) {
         )
     }// end building the subtest names
 
-
+    //only one compsite does not have a score,and that is because it's made of only one subtest
     const buildCompositeConclusion = () => {
-        return (
-            <>
-            {studentName}'s overall performance within this composite scored
-            within the <strong>{getMeasure(score)}</strong> range, with a standard score of <strong>{score}</strong>.
-            </>
-        )
+        const measure = getMeasure(score);
+        if( measure ==="Not Applicable"){
+            return(
+                <>
+                This composite does not have a score since this composite consists of only one subtest.
+                </>
+            )
+        } else {
+            return (
+                <>
+                {studentName}'s overall performance within this composite scored
+                within the <strong>{getMeasure(score)}</strong> range, with a standard
+                score of <strong>{score}</strong>.
+                </>
+            )
+        }
     }// end build conclusion
 
     const buildCompositeDescription = () => {
-        
+
         return ( <>
-                The <em>{compositeName}</em> composite is based on {studentName}'s performances
-                across {buildSubtestNames()} subsets.
+                The <em>{compositeName}</em> composite is based on {studentName}'s 
+                {subtestNames.length===1? " performance on the":" performances across the "}
+                {buildSubtestNames()}
+                {subtestNames.length===1? " subset":" subtests"}.
                 </>
         )
     }// end building the description of the composite
