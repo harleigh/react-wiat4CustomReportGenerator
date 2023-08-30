@@ -1,6 +1,6 @@
-This project generates a custom report from a wiat-4 exam via data stored in a csv file, and takes into account specific student information for each composite, subtest, or component to a subtest.
+This project generates a custom report from a wiat-4 exam via data stored in a csv file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam.
 
-There is a sample of the expected csv formatting in this project (see FormatForTemplateOfScores.csv). All you need do, for each composite/subtest/component is input the score and any student specific data you might have for that test (you may have none, that is fine).
+There is a sample of the expected csv formatting in this project (see FormatForTemplateOfScores.csv). All you need do, for each composite/subtest/component is input the score and any student specific data you might have for that test (you may have none, that is fine), as well as a conclusion (if you have any).
 
 This program works in browser, and from the browser you can copy the generated report and move it to your word-editor of choice for final conlcusions etc.
 

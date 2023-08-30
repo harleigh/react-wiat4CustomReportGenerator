@@ -1,7 +1,6 @@
-Name of Student,Student Name,
-Examiner Name,Examiner Name,
-Date of Testing, Jan 55, 2027,(please have date format in Month Day, Year (i.e. keep that comma in there)
-,,
+Student Name:,Student Name,
+Examiner Name:,Examiner Name,
+Date of Testing:,"Jan 55, 2027","<<<< please have date format in ""Month Day, Year"" (i.e. keep that comma in there)"
 Composite/Subtest,Standard score,Student Specific Information
 Oral Language,73,Student data for Oral Language.
 Listening Comprehension,73,Student specific data for Listening Comprehension.
@@ -41,3 +40,12 @@ Math Fluency,70,Student data for Math Fluency.
 Math Fluency–Addition,76,Student data for Math fluency addition.
 Math Fluency–Subtraction,71,Student data for Math Fluency subtraction.
 Math Fluency–Multiplication,72,Student data for Math Fluency Multiplication.
+,,
+Conclusions:,,"This is where we can place all of our conclusions about Student-Name's performance on the exam. This way, this single CSV file will contain all of the important results of the student at-a-glance, which I have been told will be a very useful document for the Special Education Teacher as before a meeting, the teacher can look at all of the information in one place (especially when they have so many students on their caseload), which is excellent, as any functionality which will improve the work-flow of a teacher, or simply improve the quality of work-life of a teacher, is certainly worth the (minor) efforts to include this functionality in the report generator!  With the "Word Wrapping" on a cell, the conclusion can be very readable indeed within a spreadsheet application! Now, all of the student specific data and all of the teacher's observations/recordings are in one single document; quite glorious indeed!
+
+We can even add a bulleted list into this conclusion that will save all whitespace that you choose to write. Example: The following list presents my recomendations based on this test for Student-Name:
+   • Recomendation list item #1
+   • Recomendation list item #2
+   • Recomendation list item #3
+   
+Note, the bullet came from a copy/paste of a bullet symbol."

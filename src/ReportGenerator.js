@@ -1,7 +1,7 @@
 import { useState, useEffect  } from "react";
 import {FileAccess} from "./components/FileAccessor" ;
 import {Header} from "./components/Header"
-import {processCsvFile} from './js-utilities/processCsvFile';
+import {processCsvFile, CSV_HEADERS} from './js-utilities/processCsvFile';
 import {Composite} from "./components/Composite";
 import {compositesToSubtestsDict} from "./js-utilities/WIAT-4-Tests"
 
@@ -26,10 +26,10 @@ export default function Wiat4ReportGenerator() {
     /**
      * Data used within the report that are fed to components
      */
-    const studentName = allTestDataDict["Name of Student"]
-    const examinerName = allTestDataDict["Examiner Name"]
-    const dateOfExam = allTestDataDict["Date of Testing"]
-
+    const studentName = allTestDataDict[CSV_HEADERS.STUDENT]
+    const examinerName = allTestDataDict[CSV_HEADERS.EXAMINER]
+    const dateOfExam = allTestDataDict[CSV_HEADERS.TEST_DATE]
+    const conclusionsOfExam = allTestDataDict[CSV_HEADERS.CONCLUSION]
 
     /**
      * Process the CSV file once the file contents are read
@@ -87,6 +87,14 @@ export default function Wiat4ReportGenerator() {
         sel.addRange(range);
     }//end selecting all of the contents of an element via their id
 
+    const buildConclusion = () =>{
+        return (
+            <>
+                <h2><strong><u>Conclusions:</u></strong></h2>
+                {conclusionsOfExam}
+            </>
+        )
+    }
 
 
     return (
@@ -129,14 +137,11 @@ export default function Wiat4ReportGenerator() {
                 { allTestDataDict!=="" &&   generateAllComposites() }
             </div>
 
-            {/* Since the user is going to paste the report into their word editor of
-                choice, the conclusion section only has the title; the user can supply
-                this specific information in their editor of choice (e.g. notepad++). Some
-                users like to have bulleted lists etc; it just felt akward to have a rich
-                textbox as a part of this report generator (and the csv file approach could
-                not manage special details like bulleted or numbered lists etc)  */}
+            {/*  The user can supply their own conclusion in the csv file, and the report
+                 generator preserves all of the formatting of the user's conclusion that
+                 is the csv file and places it as the last element of the generated report */}
             <div className="conclusion">
-                { allTestDataDict!==""  &&   <h2><strong><u>Conclusions:</u></strong></h2> }
+                { allTestDataDict!==""  &&  buildConclusion() }
             </div>
         </div>
         </>

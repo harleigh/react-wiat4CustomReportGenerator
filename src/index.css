@@ -60,6 +60,13 @@
     font-size: large;
 }
 
+/*For the conclusion, we want to mimic all of the newline formatting 
+that they did in the original csv
+*/
+.conclusion {
+    white-space: pre-wrap;
+    padding-bottom: 8%;
+}
 
 .noBullList {
     list-style-type: none;
