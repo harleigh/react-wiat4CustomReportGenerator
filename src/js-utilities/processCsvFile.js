@@ -112,7 +112,8 @@ function collectConclusion( dataDict, fileContentsStr ){
 
     //csv file: the double comma ,, is due to the  empty cell next to
     //          the conclusion label--see the sample csv file
-    var conclusion = fileContentsStr.slice(idx + CSV_HEADERS.CONCLUSION.length + ",,".length)
+    //needed trim for situation when a user added a ton of newlines at end
+    var conclusion = fileContentsStr.slice(idx + CSV_HEADERS.CONCLUSION.length + ",,".length).trim()
 
     /**
      * a csv file will put quotes around a cell if the cell contains a comma,
