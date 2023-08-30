@@ -19,6 +19,7 @@ Example of Report Generation: Here is the Oral Language Composite section of the
 
 Example of repeated subtests: Student specific information is not repeated when a subtest is repeated from another composite, rather the reader is told to please reference the composite where the subtest first appeared:![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/569b52d7-fb61-4faf-9c1c-366dbffe3a3c)
 
+Example of the conclusion: Your conclusion will be generated in the report with all of the formatting you choose to do in the csv file, which means you can have lists and such: ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/ac7c91b5-8acd-4d22-929e-95072a0cd663)
 
 
 A general breakdown of the WIAT-4 test and the terminology used:
