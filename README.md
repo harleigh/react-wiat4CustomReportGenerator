@@ -1,13 +1,20 @@
 This project generates a custom report from a wiat-4 exam via data stored in a csv file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam.
 
-There is a sample of the expected csv formatting in this project directory (see FormatForTemplateOfScores.csv). All you need do, for each composite/subtest/component is input the score and any student specific data you might have for that test (you may have none, that is fine), as well as a conclusion (if you have any). Be sure to load the csv file into your favorite spreadsheet application (as who would want to edit a csv file in a text editor?).
+There is a sample of the expected csv formatting in this project directory, in two formats:
+1. As raw csv file: "FormatForTemplateOfScores.csv".
+2. As a .xlsx file: "FormatForTemplateOfScores.xlsx".
+   
+**My Recomended Work Flow:**
+1.  Open the .xlsx version in either Excel, Google Sheets, or in LiberOffice.
+2.   Enter all of your data.
+3.   When you have finished with all of your data, save your spreadsheet in csv (comma sperated values) format.  It is this .csv file that will be used in the report generation
 
-This program works in browser, and from the browser you can copy the generated report and move it to your word-editor of choice for final conlcusions etc.
 
-How do I use it?
+
+How do I use the program?
 1. At start up:![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c3584d9b-89f6-497f-8f5b-76c9aab3ba05)
 
-2. Select your csv file: ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c635597f-dfb8-44e8-859e-ef07908b0b16)
+2. Select your .csv file (see "My Recomended Work Flow:" above for .csv generation): ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c635597f-dfb8-44e8-859e-ef07908b0b16)
 
 3. Hit button "Process CSV File" and the report gets generated: ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/549b3876-fa21-420a-82d9-8eec68001f3c)
 
@@ -27,6 +34,7 @@ A general breakdown of the WIAT-4 test and the terminology used:
 * Each Composite is composed of sub-tests (e.g. the "Sentence Composition" composite is composed of two subtests: Sentence Building and Sentence Combining)
 * Some subtests have components (which are two or more tests in the subtest). For example the "Oral Language" composite has a subtest "Listening Comprehension", and this subtest has two components: "Receptive Vocabulary" and "Oral Discourse Comprehension"
 * Some composites will reference a subtest (repeat it). For example: the composite "Basic Reading (and Decoding) references the subtest "Word Reading", and the subtest "Word Reading" is first found in  the composite "Reading". This project manages all of the repeats, and you need only input the scores once into the csv file (i.e. the program will take care of the references)
+* The "Writing Fluency" composite has the subtest "Alphabet Writing Fluency" which is not applicable to students past grade 3. This report generator was designed for high school SPED teachers, so the  "Alphabet Writing Fluency" functionality is implemented in the report generator.
 
 From one teacher to the next: I hope this report generator saves you (the teacher) some time.
 
