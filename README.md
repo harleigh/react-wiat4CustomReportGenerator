@@ -5,9 +5,9 @@ There is a sample of the expected csv formatting in this project directory, in t
 2. As a .xlsx file: "FormatForTemplateOfScores.xlsx".
    
 **My Recomended Work Flow:**
-1.  Open the .xlsx version in either Excel, Google Sheets, or in LiberOffice.
-2.   Enter all of your data, observations, etc. (do not edit the first column of the spreadsheet)
-3.   When you have finished with all of your data, save your spreadsheet in csv (comma sperated values) format.  It is this .csv file that will be used in the report generation
+1.  Open the .xlsx version in either Excel or Google Sheets.
+2.   Enter all of your data, observations, etc. (do not edit the first column of the spreadsheet where the test names are located).
+3.   When you have finished with all of your data, save your spreadsheet in csv format: If you are using excel you must save the file in "CSV UTF-8 (Comma Delimited)" format. If you are using google sheets, simply save as (.csv) file.   
 
 
 
