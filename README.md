@@ -6,7 +6,7 @@ There is a sample of the expected csv formatting in this project directory, in t
    
 **My Recomended Work Flow:**
 1.  Open the .xlsx version in either Excel, Google Sheets, or in LiberOffice.
-2.   Enter all of your data.
+2.   Enter all of your data, observations, etc. (do not edit the first column of the spreadsheet)
 3.   When you have finished with all of your data, save your spreadsheet in csv (comma sperated values) format.  It is this .csv file that will be used in the report generation
 
 
