@@ -2,13 +2,13 @@ This project generates a custom report from a wiat-4 exam via data stored in a *
 
 #
 
-### Specific Formatting:
+### Specific Formatting of Your Data:
 
 This program expects certain information to be within specific places, with specific names.  There are two files, in this project directory that provide the expected formatting:
 1. A .xlsx file: "FormatForTemplateOfScores.xlsx" which will be the file you use to enter your test data and conclusions.
 2. A raw .csv file: "FormatForTemplateOfScores.csv" (which was *generated* from the .xlsx file -- you *don't* want to directly edit a csv file).
 
-**Expected formatting:** In short, 
+**Expected formatting:** In short, don't alter the structure (organization) of the sample .xlsx file and put your data in the expected places; in long:
 * Never alter the information in the First Column of the spreadsheet (unless you want to fork this project and make a version yourself--be sure to follow the open source licence!)
 * Never change cell orientation (e.g. merge), the report generator is expecting the formatting given in the example provided in this project directory
 * Student specific data for a specific test/composite must be contained in *one* cell exactly to the right of said test/composite (it can be as long as you want, or even empty; you might want to turn on word wrapping so you can read the cell well.)
