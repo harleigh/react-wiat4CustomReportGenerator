@@ -35,7 +35,7 @@ export function Composite({compositeName, studentName, testInformation}) {
 
         const formatedNames =  subtestNames.map(
             (v, idx) => {
-                if( idx===lastIdx && subtestNames.length!==1){
+                if( idx===lastIdx ){    //TODO
                     return <div key={idx} style={{display:"inline"}}> and <strong > {v} </strong></div> 
                 }
                 else {
@@ -50,13 +50,15 @@ export function Composite({compositeName, studentName, testInformation}) {
         )
     }// end building the subtest names
 
+    //TODO:
     //only one compsite does not have a score,and that is because it's made of only one subtest
     const buildCompositeConclusion = () => {
         const measure = getMeasure(score);
         if( measure ==="Not Applicable"){
             return(
                 <>
-                This composite does not have a score since this composite consists of only one subtest.
+                A score for {studentName}'s overall performance in this compsite 
+                is <strong>Not Applicable</strong>.
                 </>
             )
         } else {

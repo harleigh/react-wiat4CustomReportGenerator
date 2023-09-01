@@ -23,7 +23,7 @@ export const compositesToSubtestsDict = {
     "Basic Reading (and Decoding)": ["Pseudoword Decoding", "Phonemic Proficiency", "Word Reading"],
     "Reading Fluency": ["Oral Reading Fluency", "Orthographic Fluency", "Decoding Fluency"],
     "Written Expression": ["Spelling", "Sentence Composition", "Essay Composition"],
-    "Writing Fluency": ["Sentence Writing Fluency"],
+    "Writing Fluency": ["Alphabet Writing Fluency", "Sentence Writing Fluency"],
     "Mathematics": ["Math Problem Solving", "Numerical Operations"],
     "Math Fluency": ["Math Fluency–Addition", "Math Fluency–Subtraction", "Math Fluency–Multiplication"]
 }
@@ -73,6 +73,7 @@ export const testDescriptionDict = {
     "Sentence Building": "Students write sentences that each include a target word without changing the target word.",
     "Sentence Combining": "Students combine the ideas from two or three given sentences into one sentence.",
     "Essay Composition": "subtest is designed to measure spontaneous writing fluency at the discourse level within a 10 minute time frame.  Students in grades 3-12+ are asked to write a descriptive expository essay within a 10-minute time limit.  Essays are scored for semantics, grammar and mechanics.  Content and organization are also evaluated using qualitative rubric.",
+    "Alphabet Writing Fluency": "subtest is designed for students up to the 4th grade.  In this subtest, students write the alphabet to ensure that they know all of their letters.",
     "Sentence Writing Fluency": "subtest is designed to measure sentence composition fluency. Examinees write a sentence for each item using a target word, completing as many items as possible within 5 minutes. Scoring incorporates the number of words written, use of the target word, and subject-verb agreement.",
     "Math Problem Solving": "subtest measures a range of math problem-solving skill domains including basic concepts, everyday applications, geometry, and algebra.  Students in Preschool through 12+ grades are asked to point to pictures or respond orally to items that require the application of mathematical principles to real-life situations.",
     "Numerical Operations": "subtest measures math calculation skills among children in grades Kindergarten through 12+ grades.  For early items, a student responds orally to questions about number concepts and counting.  For later items, the student writes answers to printed math problems ranging from basic operations with integers to geometry, algebra, and calculus problems.",

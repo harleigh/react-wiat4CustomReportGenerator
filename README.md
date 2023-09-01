@@ -34,7 +34,7 @@ A general breakdown of the WIAT-4 test and the terminology used:
 * Each Composite is composed of sub-tests (e.g. the "Sentence Composition" composite is composed of two subtests: Sentence Building and Sentence Combining)
 * Some subtests have components (which are two or more tests in the subtest). For example the "Oral Language" composite has a subtest "Listening Comprehension", and this subtest has two components: "Receptive Vocabulary" and "Oral Discourse Comprehension"
 * Some composites will reference a subtest (repeat it). For example: the composite "Basic Reading (and Decoding) references the subtest "Word Reading", and the subtest "Word Reading" is first found in  the composite "Reading". This project manages all of the repeats, and you need only input the scores once into the csv file (i.e. the program will take care of the references)
-* The "Writing Fluency" composite has the subtest "Alphabet Writing Fluency" which is not applicable to students past grade 3. This report generator was designed for high school SPED teachers, so the  "Alphabet Writing Fluency" functionality is not currently implemented in the report generator.
+
 
 From one teacher to the next: I hope this report generator saves you (the teacher) some time.
 

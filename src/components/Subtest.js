@@ -79,12 +79,33 @@ export function Subtest({subtestName, studentName, testInformation, parentCompos
     //boiler-plate conclusion for a subtest which talks about the student name
     // and the score they received
     const buildSubtestConclusion = () => {
-        return (
+
+        const measure = getMeasure(score);
+        if( measure ==="Not Applicable"){
+            return(
+                <>
+                A score for {studentName}'s overall performance in this subtest 
+                is <strong>Not Applicable</strong>.
+                </>
+            )
+        } else {
+            return (
+                <>
+                {studentName}'s overall performance within this subtest scored
+                within the <strong>{getMeasure(score)}</strong> range, with a standard
+                score of <strong>{score}</strong>.
+                </>
+            )
+        }
+
+
+
+        /* return (
             <>
             {studentName}'s overall performance within this subtest scored
             within the <strong>{getMeasure(score)}</strong> range, with a standard score of <strong>{score}</strong>.
             </>
-        )
+        ) */
     }// end build conclusion
 
     /**

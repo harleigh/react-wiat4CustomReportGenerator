@@ -117,15 +117,10 @@ function collectConclusion( dataDict, fileContentsStr ){
 
     /**
      * a csv file will put quotes around a cell if the cell contains a comma,
-     * so we check if the conclusion has these extra quotes, and if so, shave
-     * these specific quotes off (we want to leave the internal ones as these
-     * are from the author of the csv)
+     * so we check if we need to trim the outside quotes off the conclusion
      */
-    if( conclusion.charAt(0) ==="\""){
-        conclusion = conclusion.slice(1)
-    }
-    if(conclusion.charAt(conclusion.length-1) ==="\""){
-        conclusion = conclusion.slice(0,-1)
+    if(conclusion.charAt(0)==='"'){    //csv file adds quotes if detected ","
+        conclusion =  conclusion.slice(1,-1)
     }
 
     dataDict[CSV_HEADERS.CONCLUSION] = conclusion
@@ -154,7 +149,7 @@ function getHeaderInfo(dataDict, dataRows){
     //obtain the student name
     var rowEntry = dataRows.find( rowEntry => rowEntry.includes(CSV_HEADERS.STUDENT))
     if(rowEntry === undefined) {
-        throw new Error('Critical: I could not find ' + CSV_HEADERS.STUDENT);
+        throw new Error('Critical: I could not find "'+ CSV_HEADERS.STUDENT+'"');
     }
     var [k, v] = rowEntry.split(",")
     dataDict[k] = v;
@@ -162,7 +157,7 @@ function getHeaderInfo(dataDict, dataRows){
     //obtain the examiner's name
     rowEntry = dataRows.find( rowEntry => rowEntry.includes(CSV_HEADERS.EXAMINER))
     if(rowEntry === undefined) {
-        throw new Error('Critical: I could not find ' + CSV_HEADERS.EXAMINER);
+        throw new Error('Critical: I could not find "' + CSV_HEADERS.EXAMINER+'"');
     }
     [k, v] = rowEntry.split(",")
     dataDict[k] = v;
@@ -170,13 +165,14 @@ function getHeaderInfo(dataDict, dataRows){
 
     /* Obtain the Date of the Examination:
      *   Note: Date of test has a comma in it eg Jan 14, 2927
-     *         because of the comma, when we save as cvs the 
+     *         because of the comma, when we save as cvs, the 
      *         spreadsheet app puts quotes about the date
      */
     rowEntry = dataRows.find( rowEntry => rowEntry.includes(CSV_HEADERS.TEST_DATE))
     if(rowEntry === undefined) {
-        throw new Error('Critical: I could not find ' + CSV_HEADERS.TEST_DATE);
+        throw new Error('Critical: I could not find "' + CSV_HEADERS.TEST_DATE+'"');
     }
+
     const [key, monthDate, year] = rowEntry.split(",")
     dataDict[key] = monthDate.slice(1) + ", " + year.slice(0,-1);
 }
@@ -203,15 +199,31 @@ function collectTestEntry(dataDict, dataRows, testName){
 
 
 /**
- * dataRows: contents of csv file broken into rows; one row is
+ * When getting test data, the Student Specific Information can possibly
+ * have commas in its entry. Therefore .split(",") may return a few entries, 
+ * so we just need to join them all together.
+ * 
+ * Also, when saving to a csv file, quotes are added for any cell entry that
+ * contains the delimiter "," (so we need to pull those out)
+ * 
+ * 
+ * dataRows: contents of csv file broken into rows; each index is
  *           one row of the csv file
  * testName: name of the test we are trying to find in the row of data 
  */
 function getTestData(dataRows, testName){
     const entry = dataRows.find( rowEntry => rowEntry.includes(testName))
     if(entry === undefined) {
-        throw new Error('Critical: I could not find ' + testName);
+        throw new Error('Critical: I could not find "' + testName +'"');
     }
-    const [key, score, ssd] = entry.split(",")
+    
+    const splitBits = entry.split(",")
+    const key = splitBits[0]    //matches testName under === equality
+    const score = splitBits[1]
+    var ssd = splitBits.slice(2).join().trim()
+    if(ssd.charAt(0)==='"'){    //csv file adds quotes if detected ","
+        ssd =  ssd.slice(1,-1)
+    }
+    
     return [key, score, ssd]
 }

@@ -30,6 +30,7 @@ Essay Composition,81,Student Specific Information for the Essay Composition subt
 Sentence Building,93,Student Specific Information for the Sentence Building subtest.
 Sentence Combining,95,Student Specific Information for the Sentence Combining subtest.
 Writing Fluency,-,Student Specific Information for the Writing Fluency composite.
+Alphabet Writing Fluency,-,"Student Name did not have the Alphabet Writing Fluency subtest administered because, [insert description here]."
 Sentence Writing Fluency,82,Student Specific Information for Sentence Writing Fluency subtest.
 Mathematics,67,Student Specific Information for the Mathematics Composite.
 Math Problem Solving,68,Student Specific Information for the Math Problem Solving subtest.
@@ -39,9 +40,9 @@ Math Fluency–Addition,76,Student Specific Information for the Math Fluency–A
 Math Fluency–Subtraction,71,Student Specific Information for the Math Fluency–Subtraction subtest.
 Math Fluency–Multiplication,72,Student Specific Information for Math Fluency–Multiplication subtest.
 ,,
-Conclusions:,,"This is where we can place all of our conclusions about Student-Name's performance on the exam. This way, this single CSV file will contain all of the important results of the student at-a-glance, which I have been told will be a very useful document for the Special Education Teacher as before a meeting, the teacher can look at all of the information in one place (especially when they have so many students on their caseload), which is excellent, as any functionality which will improve the work-flow of a teacher, or simply improve the quality of work-life of a teacher, is certainly worth the (minor) efforts to include this functionality in the report generator!  With Word Wrapping on a cell, the conclusion can be very readable indeed within a spreadsheet application! Now, all of the student specific data and all of the teacher's observations/recordings are in one single document; quite glorious indeed!
+Conclusions:,,"This is where we can place all of our conclusions about Student-Name's performance on the exam. This way, this single CSV file will contain all of the important results of the student at-a-glance, which I have been told will be a very useful document for the Special Education Teacher as before a meeting, the teacher can look at all of the information in one place (especially when they have so many students on their caseload), which is excellent, as any functionality which will improve the work-flow of a teacher, or simply improve the quality of work-life of a teacher, is certainly worth the (minor) efforts to include this functionality in the report generator.  With Word Wrapping on a cell, the conclusion can be very readable indeed within a spreadsheet application. With this addition of adding concluding remarks, all of the student specific data and all of the teacher's observations/recordings are in one single document; quite glorious indeed!
 
-We can even add a bulleted list into this conclusion (but it will currently appear as inline text in the generated report). Example: The following list presents my recomendations based on this test for Student-Name:
+We can even add a bulleted list into this conclusion (a copy/paste of a bullet symbol is required). Example: The following list presents my recomendations based on this test for Student-Name:
    • Recomendation list item #1
    • Recomendation list item #2
    • Recomendation list item #3"
