@@ -1,20 +1,24 @@
-This project generates a custom report from a wiat-4 exam via data stored in a csv file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam.
+This project generates a custom report from a wiat-4 exam via data stored in a **.csv** file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam.
 
-There is a sample of the expected csv formatting in this project directory, in two formats:
-1. As raw csv file: "FormatForTemplateOfScores.csv".
-2. As a .xlsx file: "FormatForTemplateOfScores.xlsx".
+#
+
+
+
+This program expects certain information to be within specific places, with specific names.  There is a sample of the expected formatting in this project directory, in two formats:
+1. As a .xlsx file: "FormatForTemplateOfScores.xlsx"
+2. As a raw .csv file: "FormatForTemplateOfScores.csv" (which was generated from the .xlsx file).
    
 **My Recomended Work Flow:**
-1.  Open the .xlsx version in either Excel or Google Sheets.
-2.   Enter all of your data, observations, etc. (do not edit the first column of the spreadsheet where the test names are located).
-3.   When you have finished with all of your data, save your spreadsheet in csv format: If you are using excel you must save the file in "CSV UTF-8 (Comma Delimited)" format. If you are using google sheets, simply save as (.csv) file.   
+1.  Open the .xlsx version (found in this project directory) in either Excel or Google Sheets.
+2.   Enter all of your data, observations, etc in the appropriate places--e.g. student data for a test goes in the cell-row of said test. Note: Do not edit the first column of the spreadsheet where the test names are located, and all student data must be contained within the cell to the right of the test score.
+3.   When you have finished with all of your data, save your spreadsheet in **.csv** format: If you are using excel you must save the file in "CSV UTF-8 (Comma Delimited)" format. If you are using google sheets, simply save as (.csv) file.   
 
 
-
-How do I use the program?
+#
+### How do I use the program?
 1. At start up:![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c3584d9b-89f6-497f-8f5b-76c9aab3ba05)
 
-2. Select your .csv file (see "My Recomended Work Flow:" above for .csv generation): ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c635597f-dfb8-44e8-859e-ef07908b0b16)
+2. Browse and select your .csv file (see "My Recomended Work Flow:" above for .csv generation): ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/c635597f-dfb8-44e8-859e-ef07908b0b16)
 
 3. Hit button "Process CSV File" and the report gets generated: ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/549b3876-fa21-420a-82d9-8eec68001f3c)
 
