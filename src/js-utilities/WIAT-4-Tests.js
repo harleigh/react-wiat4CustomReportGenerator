@@ -136,7 +136,7 @@ export const  getMeasure = (studentScore) =>{
     }else if(score>=120 && score<130){
         measureForScore="Very Average"
     }else if(score>=130) {
-        measureForScore="Extreamly High"
+        measureForScore="Extremely High"
     }else {
         measureForScore= "Not Applicable"
     }
