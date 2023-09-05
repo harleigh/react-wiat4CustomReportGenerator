@@ -1,4 +1,4 @@
-This project generates a custom report from a wiat-4 exam via data stored in a **.csv** file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam.
+This project generates a custom report from a wiat-4 exam via data stored in a **.csv** file, and takes into account specific student information for each composite, subtest, or component to a subtest, as well as conclusions section the teacher may have regarding student and the exam. At the end of the report a table is generated which contains all student test scores and measures.
 
 #
 
