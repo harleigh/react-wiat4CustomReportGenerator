@@ -71,9 +71,30 @@ that they did in the original csv
     padding-bottom: 8%;
 }
 
+
+
 table {
     width: 100%;
-  }
+    border-collapse: collapse;
+}
+
+
+
+td, th {
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-size: large;
+    text-align: center;
+}
+tr {
+    text-align: center;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+td {
+    padding: 5px;
+}
 
 .noBullList {
     list-style-type: none;
