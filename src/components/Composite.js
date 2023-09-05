@@ -57,7 +57,7 @@ export function Composite({compositeName, studentName, testInformation}) {
         if( measure ==="Not Applicable"){
             return(
                 <>
-                A score for {studentName}'s overall performance in this compsite 
+                A score for {studentName}'s overall performance in this composite
                 is <strong>Not Applicable</strong>.
                 </>
             )
