@@ -43,6 +43,9 @@ This program expects certain information to be within specific places, with spec
 
 * Example of the conclusion: Your conclusion will be generated in the report with *all* of the formatting you choose to do in your .csv file. This means you can have lists and such: ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/ac7c91b5-8acd-4d22-929e-95072a0cd663)
 
+* Example of the table generation in the Appendix (after the conclusion): ![image](https://github.com/harleigh/react-wiat4CustomReportGenerator/assets/4912070/2b80f12d-317a-4a24-bedb-65ab64febbf3)
+
+
 #
 
 A general breakdown of the WIAT-4 test and the terminology used:
