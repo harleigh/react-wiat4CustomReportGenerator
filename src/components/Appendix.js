@@ -3,7 +3,9 @@ import { compositesToSubtestsDict,
          getMeasure } from '../js-utilities/WIAT-4-Tests'
 
 
-
+/**
+ * The appendix generates a table of each test score and measure.
+ */
 export function Appendix( {studentName, testData} ) {
 
     const buildTableContents = () => {
@@ -23,12 +25,9 @@ export function Appendix( {studentName, testData} ) {
         }
 
         for(const c in compositesToSubtestsDict) {
-            //console.log(c, testData[c][0], getMeasure(testData[c][0]) )
-            buildRow(c, testData[c][0])
-            
+            buildRow(c, testData[c][0])            
             const allSubtests = compositesToSubtestsDict[c];
              for( const subtest of allSubtests) {
-                //collectTestEntry(dataDict, rows, subtest)
                 buildRow(subtest, testData[subtest][0])
                 /**
                  * Note that (most) subtests do not have components, so we do a quick
@@ -37,7 +36,6 @@ export function Appendix( {studentName, testData} ) {
                 const allComponents = subTestsToComponentsDict[subtest]
                 if( allComponents ) {
                     for( const component of allComponents) {
-                        //collectTestEntry(dataDict, rows, component)
                         buildRow(component, testData[component][0])
                     } 
                 }
@@ -58,7 +56,6 @@ export function Appendix( {studentName, testData} ) {
                     <th> Standard Score </th>
                     <th> Measure </th>
                 </tr>
-
             </thead>
             <tbody>
                 {buildTableContents()}
