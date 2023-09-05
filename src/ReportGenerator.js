@@ -4,6 +4,7 @@ import {Header} from "./components/Header"
 import {processCsvFile, CSV_HEADERS} from './js-utilities/processCsvFile';
 import {Composite} from "./components/Composite";
 import {compositesToSubtestsDict} from "./js-utilities/WIAT-4-Tests"
+import { Appendix } from "./components/Appendix";
 
 
 /**
@@ -143,7 +144,12 @@ export default function Wiat4ReportGenerator() {
             <div className="conclusion">
                 { allTestDataDict!==""  &&  buildConclusion() }
             </div>
-        </div>
+
+            <div className="appendix">
+            { allTestDataDict!==""  &&  <Appendix studentName={ studentName }
+                                                   testData={allTestDataDict}/> }
+            </div>
+        </div>{/** end wiat-4 div */}
         </>
     )
 }// end of the wiat-4 report generator component

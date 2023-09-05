@@ -65,8 +65,15 @@ that they did in the original csv
 */
 .conclusion {
     white-space: pre-wrap;
+}
+
+.appendix {
     padding-bottom: 8%;
 }
+
+table {
+    width: 100%;
+  }
 
 .noBullList {
     list-style-type: none;
