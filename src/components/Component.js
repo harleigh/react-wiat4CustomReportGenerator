@@ -1,3 +1,4 @@
+import {setPossessive} from '../js-utilities/namePossessive'
 import {testDescriptionDict,
         getMeasure} from "../js-utilities/WIAT-4-Tests"
 
@@ -19,7 +20,7 @@ export function Component({componentName, studentName,  testInformation}) {
     const buildComponentConclusion = () => {
         return (
             <>
-            {studentName}'s performance within this component scored
+            {setPossessive(studentName)} performance within this component scored
             within the <strong>{getMeasure(score)}</strong> range,
             with a standard score of <strong>{score}</strong>.
             </>
