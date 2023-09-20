@@ -1,3 +1,4 @@
+import {setPossessive} from '../js-utilities/namePossessive'
 /**
  * A component that is text-only providing basic information regarding the WIAT-4 exam
  * In: Student Name, Name of person who administered the exam, and date of examination
@@ -14,7 +15,7 @@ export function Header( {studentFullName, studentFirstName, examinerName, date} 
 
         return (
             <p>
-                To assess {studentFirstName}'s academic abilities in language processing, reading,
+                To assess {setPossessive(studentFirstName)} academic abilities in language processing, reading,
                 writing and math, {studentFirstName} was administered grade-appropriate subtests
                 from the Wechsler Individual Achievement Test®, Fourth Edition (WIAT®-4).
                 This assessment is a norm-referenced,  individually administered
@@ -35,7 +36,7 @@ export function Header( {studentFullName, studentFirstName, examinerName, date} 
         return (
             <>
             <p>
-                Explanation of all measures and {studentFirstName}'s performances across these clusters
+                Explanation of all measures and {setPossessive(studentFirstName)} performances across these clusters
                 are analyzed below. Interpretation of assessment results and standard scores
                 are as follows:
             </p>
