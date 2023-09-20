@@ -1,3 +1,4 @@
+import {setPossessive} from '../js-utilities/namePossessive'
 import { testDescriptionDict,
          subTestsToComponentsDict,
          getMeasure} from "../js-utilities/WIAT-4-Tests"
@@ -84,28 +85,19 @@ export function Subtest({subtestName, studentName, testInformation, parentCompos
         if( measure ==="Not Applicable"){
             return(
                 <>
-                A score for {studentName}'s overall performance in this subtest 
+                A score for {setPossessive(studentName)} overall performance in this subtest 
                 is <strong>Not Applicable</strong>.
                 </>
             )
         } else {
             return (
                 <>
-                {studentName}'s overall performance within this subtest scored
+                {setPossessive(studentName)} overall performance within this subtest scored
                 within the <strong>{getMeasure(score)}</strong> range, with a standard
                 score of <strong>{score}</strong>.
                 </>
             )
         }
-
-
-
-        /* return (
-            <>
-            {studentName}'s overall performance within this subtest scored
-            within the <strong>{getMeasure(score)}</strong> range, with a standard score of <strong>{score}</strong>.
-            </>
-        ) */
     }// end build conclusion
 
     /**
