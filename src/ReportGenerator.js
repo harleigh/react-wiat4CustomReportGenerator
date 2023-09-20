@@ -32,6 +32,10 @@ export default function Wiat4ReportGenerator() {
     const dateOfExam = allTestDataDict[CSV_HEADERS.TEST_DATE]
     const conclusionsOfExam = allTestDataDict[CSV_HEADERS.CONCLUSION]
 
+    //Note: At the start of the program, before the user has run
+    //a csv report, the student name will be undefined.
+    const studentFirstName = studentName?.split(" ")[0]
+
     /**
      * Process the CSV file once the file contents are read
      * fileContents is set by the File Access component (where
@@ -62,7 +66,7 @@ export default function Wiat4ReportGenerator() {
             return (
                 <div className="compositeBody" key={idx}>
                     <Composite compositeName={compositeName}
-                                        studentName={studentName}
+                                        studentName={studentFirstName}
                                         testInformation={allTestDataDict}/>
                 </div>
             )
@@ -126,9 +130,10 @@ export default function Wiat4ReportGenerator() {
                 (who took the test, who administered the test, and general information on
                 the wiat-4 test) */}
             <div className="reportHeader">
-                {allTestDataDict!=="" && <Header sName={studentName}
-                                                examinerName={examinerName}
-                                                date={dateOfExam}/>}
+                {allTestDataDict!=="" && <Header    studentFullName={studentName}
+                                                    studentFirstName={studentFirstName}
+                                                    examinerName={examinerName}
+                                                    date={dateOfExam}/>}
             </div>
 
             {/* The wiat-4 test is broken into ten "composites", each composite has
@@ -146,7 +151,7 @@ export default function Wiat4ReportGenerator() {
             </div>
 
             <div className="appendix">
-            { allTestDataDict!==""  &&  <Appendix studentName={ studentName }
+            { allTestDataDict!==""  &&  <Appendix studentName={ studentFirstName }
                                                    testData={allTestDataDict}/> }
             </div>
         </div>{/** end wiat-4 div */}

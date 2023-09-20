@@ -3,7 +3,7 @@
  * In: Student Name, Name of person who administered the exam, and date of examination
  * 
  */
-export function Header( {sName, examinerName, date} ) {
+export function Header( {studentFullName, studentFirstName, examinerName, date} ) {
 
     /**
      * Basic description of WIAT-4 test for the generated report; apparently this is very
@@ -14,8 +14,8 @@ export function Header( {sName, examinerName, date} ) {
 
         return (
             <p>
-                To assess {sName}'s academic abilities in language processing, reading,
-                writing and math, {sName} was administered grade-appropriate subtests
+                To assess {studentFirstName}'s academic abilities in language processing, reading,
+                writing and math, {studentFirstName} was administered grade-appropriate subtests
                 from the Wechsler Individual Achievement Test®, Fourth Edition (WIAT®-4).
                 This assessment is a norm-referenced,  individually administered
                 achievement test. The WIAT-4, consists of 20 subtests used to evaluate
@@ -35,7 +35,7 @@ export function Header( {sName, examinerName, date} ) {
         return (
             <>
             <p>
-                Explanation of all measures and {sName}'s performances across these clusters
+                Explanation of all measures and {studentFirstName}'s performances across these clusters
                 are analyzed below. Interpretation of assessment results and standard scores
                 are as follows:
             </p>
@@ -61,7 +61,7 @@ export function Header( {sName, examinerName, date} ) {
                 <h3><strong>WIAT-4 Score Report</strong></h3>
             </div>
             <div>
-                <p>Name of Student: {sName} </p>
+                <p>Name of Student: {studentFullName} </p>
                 <p>Examiner: {examinerName}</p>
                 <p>Date of Examination: {date}</p>
                 {testDescription()}
