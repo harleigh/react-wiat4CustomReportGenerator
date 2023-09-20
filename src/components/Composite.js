@@ -1,3 +1,4 @@
+import {setPossessive} from '../js-utilities/namePossessive'
 import {compositesToSubtestsDict,
         getMeasure,
         compositesWithRefsDict,
@@ -57,14 +58,14 @@ export function Composite({compositeName, studentName, testInformation}) {
         if( measure ==="Not Applicable"){
             return(
                 <>
-                A score for {studentName}'s overall performance in this composite
+                A score for {setPossessive(studentName)} overall performance in this composite
                 is <strong>Not Applicable</strong>.
                 </>
             )
         } else {
             return (
                 <>
-                {studentName}'s overall performance within this composite scored
+                {setPossessive(studentName)} overall performance within this composite scored
                 within the <strong>{getMeasure(score)}</strong> range, with a standard
                 score of <strong>{score}</strong>.
                 </>
@@ -75,7 +76,7 @@ export function Composite({compositeName, studentName, testInformation}) {
     const buildCompositeDescription = () => {
 
         return ( <>
-                The <em>{compositeName}</em> composite is based on {studentName}'s 
+                The <em>{compositeName}</em> composite is based on {setPossessive(studentName)} 
                 {subtestNames.length===1? " performance on the":" performances across the "}
                 {buildSubtestNames()}
                 {subtestNames.length===1? " subset":" subtests"}.
