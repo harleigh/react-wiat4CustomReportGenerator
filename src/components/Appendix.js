@@ -1,3 +1,4 @@
+import {setPossessive} from '../js-utilities/namePossessive'
 import { compositesToSubtestsDict,
          subTestsToComponentsDict, 
          getMeasure } from '../js-utilities/WIAT-4-Tests'
@@ -48,7 +49,7 @@ export function Appendix( {studentName, testData} ) {
     return (
         <>
         <h2><strong><u>Appendix:</u></strong></h2>
-        <p> The following table summarizes {studentName}'s performance on the WIAT-4 test: </p>
+        <p> The following table summarizes {setPossessive(studentName)} performance on the WIAT-4 test: </p>
         <table>
             <thead>
                 <tr>
